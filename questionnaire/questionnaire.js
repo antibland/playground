@@ -1,28 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
-  <title>Questionnaire</title>
-  <link rel="stylesheet" href="stylesheets/main.css">
-</head>
-
-<body>
-
-  <div id="questions-container" aria-busy="true">
-    <div class="inner">
-      <button
-        disabled
-        tabindex="0"
-        value="Go"
-        data-question-id="-1">Go
-      </button>
-    </div>
-  </div>
-
-  <script src="questions.js"></script>
-  <script>
-
     var Questionnaire = {
       current_question_index: 0,
 
@@ -146,9 +121,3 @@
           .appendChild(this.questions_list);
       }
     };
-
-    var questionnaire = Object.create(Questionnaire);
-    questionnaire.init();
-  </script>
-</body>
-</html>

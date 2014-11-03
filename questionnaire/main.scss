@@ -40,8 +40,6 @@ body {
   top: 50%;
 }
 
-
-
 %button {
   @include transition(0.3s);
   @include border-radius(0.25em);
@@ -149,7 +147,6 @@ body {
     bottom: -1.3em;
     z-index: 100;
   }
-
 }
 
 .question-text {
