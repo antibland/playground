@@ -25,7 +25,7 @@ questionnaire.init();
 ###Native Drag and Drop###
 You may be thinking, _why?_ Yes, there are a lot of drag and drop demos out in the wild, but few address accessibility as well as 3D CSS transforms. It's by no means perfect, though, and mobile support is coming next.
 
-Using it is very similar to all the demos all likely add to the playground.
+Using it is very similar to all the demos I'll likely add to the playground.
 ```javascript
 <script src="js/drag.js"></script>
 
