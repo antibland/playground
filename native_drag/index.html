@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drag to event</title>
+  <link rel="stylesheet" href="stylesheets/main.css">
+</head>
+<body>
+  <main>
+    <ul aria-dropeffect="copy" id="friends">
+      <li aria-grabbed="false" draggable="true">
+        <span class="friend-name">Artie Simmons</span>
+      </li>
+      <li aria-grabbed="false" draggable="true">
+        <span class="friend-name">Sammy Jung</span>
+      </li>
+      <li aria-grabbed="false" draggable="true">
+        <span class="friend-name">Laura Playtime</span>
+      </li>
+      <li aria-grabbed="false" draggable="true">
+        <span class="friend-name">Bill Crotch</span>
+      </li>
+      <li aria-grabbed="false" draggable="true">
+        <span class="friend-name">Crampa Jones</span>
+      </li>
+    </ul>
+
+    <ul id="events">
+      <li class="event">
+        <span class="event-name">Rodeo Rock Show</span>
+      </li>
+      <li class="event">
+        <span class="event-name">Circus Nightmare</span>
+      </li>
+      <li class="event">
+        <span class="event-name">Jonestown Brunch</span>
+      </li>
+      <li class="event">
+        <span class="event-name">Soda Hodown</span>
+      </li>
+      <li class="event">
+        <span class="event-name">Racism Convention</span>
+      </li>
+    </ul>
+  </main>
+
+  <script src="js/native_drag.js"></script>
+
+  <script>
+    var drag = Object.create(Drag);
+    drag.init();
+  </script>
+</body>
+</html>

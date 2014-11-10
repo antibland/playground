@@ -1,0 +1,123 @@
+@import "compass/reset";
+@import "compass/css3";
+
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+      $animations: #{$animations + nth($animate, $i)};
+
+      @if $i < $max {
+          $animations: #{$animations + ", "};
+      }
+  }
+  -webkit-animation: $animations;
+  -moz-animation:    $animations;
+  -o-animation:      $animations;
+  animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+      @content;
+  }
+  @-moz-keyframes #{$animationName} {
+      @content;
+  }
+  @-o-keyframes #{$animationName} {
+      @content;
+  }
+  @keyframes #{$animationName} {
+      @content;
+  }
+}
+
+@include keyframes(scale) {
+  0% { @include scale3d(1, 1, 1) }
+  50% { @include scale3d(1.1, 1.1, 1) }
+  100% { @include scale3d(1, 1, 1) }
+}
+
+@include keyframes(shake) {
+  0% { @include transform(translate(2px, 0px) rotate(0deg)); }
+  10% { @include transform(translate(-1px, 0px) rotate(-1deg)); }
+  20% { @include transform(translate(-3px, 0px) rotate(1deg)); }
+  30% { @include transform(translate(0px, 0px) rotate(0deg)); }
+  40% { @include transform(translate(1px, 0px) rotate(1deg)); }
+  50% { @include transform(translate(-1px, 0px) rotate(-1deg)); }
+  60% { @include transform(translate(-3px, 0px) rotate(0deg)); }
+  70% { @include transform(translate(2px, 1px) rotate(-1deg)); }
+  80% { @include transform(translate(-1px, -1px) rotate(1deg)); }
+  90% { @include transform(translate(2px, 0px) rotate(0deg)); }
+  100% { @include transform(translate(1px, 0px) rotate(-1deg)); }
+}
+
+body {
+  font-size: 62.5%;
+}
+
+[draggable="true"] {
+  @include transition(0.45s);
+  @include user-select(none);
+
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+
+  cursor: move;
+
+  &[aria-grabbed="true"] {
+    @include opacity(0.3);
+    @include scale3d(0.8, 0.8, 1);
+  }
+
+  &[aria-grabbed="false"] {
+    @include opacity(1);
+  }
+}
+
+#friends,
+#events {
+  > li {
+    @include border-radius(5em);
+    background: white;
+    border: 1px solid #8a868e;
+    display: inline-block;
+    width: 5em;
+    height: 5em;
+    list-style: none;
+    position: relative;
+    margin: 2em;
+    font-size: 1.7em;
+
+    .event-name,
+    .friend-name {
+      position: absolute;
+      bottom: -1.6em;
+      display: block;
+      width: 9em;
+    }
+
+    ul {
+      position: absolute;
+      bottom: -3.5em;
+      height: 1em;
+    }
+
+    li {
+      list-style: disc;
+      white-space: nowrap;
+      margin-bottom: 0.5em;
+      font-size: 0.8em;
+    }
+  }
+}
+
+.item-dropped {
+  @include animation('scale .5s');
+}
+
+.item-duplicate {
+  @include animation('shake .35s');
+}
