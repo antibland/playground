@@ -112,7 +112,7 @@ var Drag = {
 
     this.drag_src_el = e.target;
 
-    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.effectAllowed = 'copy';
     e.dataTransfer.setData('text/html', target.innerHTML);
   },
 
@@ -121,7 +121,7 @@ var Drag = {
       e.preventDefault();
     }
 
-    e.dataTransfer.dropEffect = "move";
+    e.dataTransfer.dropEffect = "copy";
     return false;
   },
 
