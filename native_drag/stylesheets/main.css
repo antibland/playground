@@ -437,12 +437,7 @@ body {
   opacity: 1;
 }
 
-/* line 80, ../sass/main.scss */
-#friends > li {
-  z-index: 100;
-}
-
-/* line 86, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 #friends > li,
 #events > li {
   -moz-border-radius: 5em;
@@ -458,7 +453,7 @@ body {
   margin: 2em;
   font-size: 1.7em;
 }
-/* line 98, ../sass/main.scss */
+/* line 94, ../sass/main.scss */
 #friends > li .event-name,
 #friends > li .friend-name,
 #events > li .event-name,
@@ -467,15 +462,16 @@ body {
   bottom: -1.6em;
   display: block;
   width: 9em;
+  pointer-events: none;
 }
-/* line 106, ../sass/main.scss */
+/* line 103, ../sass/main.scss */
 #friends > li ul,
 #events > li ul {
   position: absolute;
   bottom: -3.5em;
   height: 1em;
 }
-/* line 112, ../sass/main.scss */
+/* line 109, ../sass/main.scss */
 #friends > li li,
 #events > li li {
   list-style: disc;
@@ -484,7 +480,17 @@ body {
   font-size: 0.8em;
 }
 
-/* line 121, ../sass/main.scss */
+/* line 118, ../sass/main.scss */
+#friends > li {
+  z-index: 100;
+}
+
+/* line 122, ../sass/main.scss */
+#events > li {
+  background: #eee;
+}
+
+/* line 126, ../sass/main.scss */
 .item-dropped {
   -webkit-animation: scale .5s;
   -moz-animation: scale .5s;
@@ -492,7 +498,7 @@ body {
   animation: scale .5s;
 }
 
-/* line 125, ../sass/main.scss */
+/* line 130, ../sass/main.scss */
 .item-duplicate {
   -webkit-animation: shake .35s;
   -moz-animation: shake .35s;

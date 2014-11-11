@@ -77,10 +77,6 @@ body {
   }
 }
 
-#friends > li {
-  z-index: 100;
-}
-
 #friends,
 #events {
   > li {
@@ -101,6 +97,7 @@ body {
       bottom: -1.6em;
       display: block;
       width: 9em;
+      pointer-events: none;
     }
 
     ul {
@@ -116,6 +113,14 @@ body {
       font-size: 0.8em;
     }
   }
+}
+
+#friends > li {
+  z-index: 100;
+}
+
+#events > li {
+  background: #eee;
 }
 
 .item-dropped {
