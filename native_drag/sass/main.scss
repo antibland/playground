@@ -77,6 +77,10 @@ body {
   }
 }
 
+#friends > li {
+  z-index: 100;
+}
+
 #friends,
 #events {
   > li {
