@@ -1,32 +1,52 @@
+"use strict";
 var Drag = {
   drag_src_el  : null,
   draggable_els: null,
   target_els   : null,
+  offset       : {},
 
-  getDraggableElements: function() {
-    return document.querySelectorAll("[aria-dropeffect='copy'] [draggable='true']");
-  },
+  utils: {
+    isTouchDevice: function() {
+      return (('ontouchstart' in window)
+          || (navigator.MaxTouchPoints > 0)
+          || (navigator.msMaxTouchPoints > 0));
+    },
 
-  getTargetElements: function() {
-    return document.querySelectorAll(".event");
+    getDraggableElements: function() {
+      return document.querySelectorAll("[aria-dropeffect='copy'] [draggable='true']");
+    },
+
+    getTargetElements: function() {
+      return document.querySelectorAll(".event");
+    }
   },
 
   init: function() {
     this.initVars();
     this.bindEvents();
+    this.touchSupport();
   },
 
   initVars: function() {
-    this.draggable_els = this.getDraggableElements();
-    this.target_els = this.getTargetElements();
+    this.draggable_els = this.utils.getDraggableElements();
+    this.target_els = this.utils.getTargetElements();
   },
 
   bindEvents: function() {
-    var that = this;
+    var that     = this,
+        touchobj = null, // Touch object holder
+        distx    = 0,    // x distance traveled by touch point
+        disty    = 0,    // y distance traveled by touch point
+        startx,          // starting x coordinate of touch point
+        starty,          // starting y coordinate of touch point
+        obj_left,        // left position of moving element
+        obj_top;         // top position of mobing element
 
-    [].forEach.call(that.draggable_els, function(el) {
+    [].forEach.call(that.draggable_els, function(el, index) {
       el.addEventListener('dragstart', function(e) { that.handleDragStart(e); });
       el.addEventListener('dragend', function(e) { that.handleDragEnd(e); });
+      el.addEventListener('touchstart', function(e) { that.handleTouchStart(e, index); });
+      el.addEventListener('touchmove', function(e) { that.handleTouchMove(e, index); });
     });
 
     [].forEach.call(that.target_els, function(el) {
@@ -36,6 +56,50 @@ var Drag = {
       el.addEventListener('drop', function(e) { that.handleDrop(e); });
     });
   },
+
+  touchSupport: function() {
+    if (this.utils.isTouchDevice()) {
+      var style;
+
+      [].forEach.call(this.draggable_els, function(el) {
+        el.removeAttribute("draggable");
+        style = "left:0; top:0";
+        el.setAttribute("style", style);
+      });
+    }
+  },
+
+  handleTouchStart: function(e, index) {
+    var target       = e.target,
+        obj_left_pos = target.style.left || target.offsetLeft,
+        obj_top_pos  = target.style.top || target.offsetTop;
+
+    this.touchobj = e.changedTouches[0] // reference first touch point
+    this.obj_left = parseInt(obj_left_pos) // get left position of box
+    this.obj_top  = parseInt(obj_top_pos)  // get top position of box
+    this.startx = parseInt(this.touchobj.clientX) // get x coord of touch point
+    this.starty = parseInt(this.touchobj.clientY) // get x coord of touch point
+
+    if (e.preventDefault) {
+      e.preventDefault();
+    }
+  },
+
+  handleTouchMove: function(e, index) {
+    var target = e.target;
+
+    this.touchobj = e.changedTouches[0];
+    this.distx = parseInt(this.touchobj.clientX) - this.startx;
+    this.disty = parseInt(this.touchobj.clientY) - this.starty;
+    target.style.left = (this.obj_left + this.distx) + "px";
+    target.style.top = (this.obj_top + this.disty) + "px";
+
+    if (e.preventDefault) {
+      e.preventDefault();
+    }
+  },
+
+  handleTouchEnd: function(e) {},
 
   getFriendText: function() {
     return document.querySelector("[aria-grabbed='true'] .friend-name").innerHTML;
