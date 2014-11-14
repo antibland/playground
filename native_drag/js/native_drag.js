@@ -3,7 +3,9 @@ var Drag = {
   drag_src_el  : null,
   draggable_els: null,
   target_els   : null,
-  offset       : {},
+  positions    : [],
+  circle       : { width: 87 },
+  colliding    : false,
 
   utils: {
     isTouchDevice: function() {
@@ -47,6 +49,7 @@ var Drag = {
       el.addEventListener('dragend', function(e) { that.handleDragEnd(e); });
       el.addEventListener('touchstart', function(e) { that.handleTouchStart(e, index); });
       el.addEventListener('touchmove', function(e) { that.handleTouchMove(e, index); });
+      el.addEventListener('touchend', function(e) { that.handleTouchEnd(e, index); });
     });
 
     [].forEach.call(that.target_els, function(el) {
@@ -78,7 +81,7 @@ var Drag = {
     this.obj_left = parseInt(obj_left_pos) // get left position of box
     this.obj_top  = parseInt(obj_top_pos)  // get top position of box
     this.startx = parseInt(this.touchobj.clientX) // get x coord of touch point
-    this.starty = parseInt(this.touchobj.clientY) // get x coord of touch point
+    this.starty = parseInt(this.touchobj.clientY) // get y coord of touch point
 
     if (e.preventDefault) {
       e.preventDefault();
@@ -94,12 +97,62 @@ var Drag = {
     target.style.left = (this.obj_left + this.distx) + "px";
     target.style.top = (this.obj_top + this.disty) + "px";
 
+    target.setAttribute("aria-grabbed", "true");
+
     if (e.preventDefault) {
       e.preventDefault();
     }
+
+    this.updatePositions();
+    this.detectCollision(e);
   },
 
-  handleTouchEnd: function(e) {},
+  handleTouchEnd: function(e) {
+    if (this.colliding) { this.handleDrop(e); }
+  },
+
+  updatePositions: function() {
+    var targets = this.utils.getTargetElements(),
+        len     = targets.length,
+        that    = this,
+        rect;
+
+    this.positions.length = 0;
+
+    [].forEach.call(targets, function(target) {
+      rect = target.getBoundingClientRect();
+      that.positions.push([rect.left, rect.top]);
+    });
+  },
+
+  detectCollision: function(e) {
+    var targets        = this.utils.getTargetElements(),
+        len            = targets.length,
+        dragged        = e.target,
+        radius         = this.circle.width/2,
+        rect1          = dragged.getBoundingClientRect(),
+        x1             = rect1.left,
+        y1             = rect1.top,
+        that           = this,
+        x2, y2, dx, dy, distance;
+
+    for (var i = 0; i < len; i++) {
+      x2 = that.positions[i][0];
+      y2 = that.positions[i][1];
+      dx = (x1 + radius) - (x2 + radius);
+      dy = (y1 + radius) - (y2 + radius);
+      distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < radius + radius) {
+        targets[i].classList.add("over");
+        that.colliding = true;
+        break;
+      } else {
+        targets[i].classList.remove("over");
+        that.colliding = false;
+      }
+    }
+  },
 
   getFriendText: function() {
     return document.querySelector("[aria-grabbed='true'] .friend-name").innerHTML;

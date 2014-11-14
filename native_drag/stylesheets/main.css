@@ -410,10 +410,10 @@ body {
 
 /* line 60, ../sass/main.scss */
 [draggable="true"] {
-  -moz-transition: 0.45s;
-  -o-transition: 0.45s;
-  -webkit-transition: 0.45s;
-  transition: 0.45s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   -moz-user-select: -moz-none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -487,10 +487,18 @@ body {
 
 /* line 122, ../sass/main.scss */
 #events > li {
+  -moz-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  -webkit-transition: border 0.3s;
+  transition: border 0.3s;
   background: #eee;
 }
-
 /* line 126, ../sass/main.scss */
+#events > li.over {
+  border-color: black;
+}
+
+/* line 131, ../sass/main.scss */
 .item-dropped {
   -webkit-animation: scale .5s;
   -moz-animation: scale .5s;
@@ -498,7 +506,7 @@ body {
   animation: scale .5s;
 }
 
-/* line 130, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 .item-duplicate {
   -webkit-animation: shake .35s;
   -moz-animation: shake .35s;

@@ -58,7 +58,7 @@ body {
 }
 
 [draggable="true"] {
-  @include transition(0.45s);
+  @include transition(0.4s);
   @include user-select(none);
 
   /* Required to make elements draggable in old WebKit */
@@ -120,7 +120,12 @@ body {
 }
 
 #events > li {
+  @include transition(0.3s border);
   background: #eee;
+
+  &.over {
+    border-color: black;
+  }
 }
 
 .item-dropped {
