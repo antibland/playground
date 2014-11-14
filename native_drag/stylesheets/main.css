@@ -446,8 +446,8 @@ body {
   background: white;
   border: 1px solid #8a868e;
   display: inline-block;
-  width: 5em;
-  height: 5em;
+  width: 4em;
+  height: 4em;
   list-style: none;
   position: relative;
   margin: 2em;
@@ -461,17 +461,18 @@ body {
   position: absolute;
   bottom: -1.6em;
   display: block;
-  width: 9em;
+  white-space: nowrap;
+  font-size: 0.9em;
   pointer-events: none;
 }
-/* line 103, ../sass/main.scss */
+/* line 104, ../sass/main.scss */
 #friends > li ul,
 #events > li ul {
   position: absolute;
   bottom: -3.5em;
   height: 1em;
 }
-/* line 109, ../sass/main.scss */
+/* line 110, ../sass/main.scss */
 #friends > li li,
 #events > li li {
   list-style: disc;
@@ -480,36 +481,45 @@ body {
   font-size: 0.8em;
 }
 
-/* line 118, ../sass/main.scss */
+/* line 119, ../sass/main.scss */
 #friends > li {
   z-index: 100;
 }
 
-/* line 122, ../sass/main.scss */
+/* line 123, ../sass/main.scss */
 #events > li {
-  -moz-transition: border 0.3s;
-  -o-transition: border 0.3s;
-  -webkit-transition: border 0.3s;
-  transition: border 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   background: #eee;
 }
-/* line 126, ../sass/main.scss */
+/* line 127, ../sass/main.scss */
 #events > li.over {
   border-color: black;
+  background: #ccc;
 }
 
-/* line 131, ../sass/main.scss */
+/* line 133, ../sass/main.scss */
+.enable-transition {
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+/* line 137, ../sass/main.scss */
 .item-dropped {
-  -webkit-animation: scale .5s;
-  -moz-animation: scale .5s;
-  -o-animation: scale .5s;
-  animation: scale .5s;
+  -webkit-animation: scale 0.5s;
+  -moz-animation: scale 0.5s;
+  -o-animation: scale 0.5s;
+  animation: scale 0.5s;
 }
 
-/* line 135, ../sass/main.scss */
+/* line 141, ../sass/main.scss */
 .item-duplicate {
-  -webkit-animation: shake .35s;
-  -moz-animation: shake .35s;
-  -o-animation: shake .35s;
-  animation: shake .35s;
+  -webkit-animation: shake 0.35s;
+  -moz-animation: shake 0.35s;
+  -o-animation: shake 0.35s;
+  animation: shake 0.35s;
 }

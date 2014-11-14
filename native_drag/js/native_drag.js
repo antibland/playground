@@ -4,7 +4,7 @@ var Drag = {
   draggable_els    : null,
   target_els       : null,
   positions        : [],
-  circle           : { width: 87 },
+  circle           : { width:  document.querySelector(".event").offsetWidth },
   colliding        : false,
   positions_loaded : false,
 
@@ -84,6 +84,8 @@ var Drag = {
     this.startx = parseInt(this.touchobj.clientX) // get x coord of touch point
     this.starty = parseInt(this.touchobj.clientY) // get y coord of touch point
 
+    this.resetTargetStates();
+
     if (!this.positions_loaded) {
       this.loadPositions();
     }
@@ -112,7 +114,11 @@ var Drag = {
   },
 
   handleTouchEnd: function(e) {
-    if (this.colliding) { this.handleDrop(e); }
+    if (this.colliding) {
+      this.handleDrop(e);
+    } else {
+      e.target.setAttribute("aria-grabbed", "false");
+    }
   },
 
   loadPositions: function() {
@@ -135,7 +141,8 @@ var Drag = {
     var targets        = this.utils.getTargetElements(),
         len            = targets.length,
         dragged        = e.target,
-        radius         = this.circle.width/2,
+        circle         = this.circle,
+        radius         = circle.width * 0.5,
         rect1          = dragged.getBoundingClientRect(),
         x1             = rect1.left,
         y1             = rect1.top,
@@ -181,26 +188,42 @@ var Drag = {
   },
 
   handleDrop: function(e) {
-    var friend_text       = this.getFriendText(),
-        friends_list      = null;
+    var friend_text  = this.getFriendText(),
+        friends_list = null,
+        target       = document.querySelector(".over");
 
     this.preventBrowserRedirect(e);
 
-    if (e.target.childNodes.length <= 3) {
+    if (target.childNodes.length <= 3) {
       friends_list = document.createElement("ul");
-      e.target.appendChild(friends_list);
+      target.appendChild(friends_list);
     } else {
       friends_list = document.querySelector(".over ul");
     }
 
     if (this.addItemToList(friends_list, friend_text) === true) {
-      e.target.classList.add("item-dropped");
+      target.classList.add("item-dropped");
+
+      if (this.utils.isTouchDevice()) {
+        var touch_target = e.target;
+        touch_target.classList.add("enable-transition");
+        touch_target.style.top = 0;
+        touch_target.style.left = 0;
+      }
     } else {
-      e.target.classList.add("item-duplicate");
+      target.classList.add("item-duplicate");
+    }
+
+    if (this.utils.isTouchDevice()) {
+      e.target.setAttribute("aria-grabbed", "false");
     }
   },
 
   resetTargetStates: function() {
+    [].forEach.call(this.draggable_els, function (el) {
+      el.classList.remove("enable-transition");
+    });
+
     [].forEach.call(this.target_els, function (el) {
       el.classList.remove("item-duplicate");
       el.classList.remove("item-dropped");

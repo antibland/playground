@@ -84,8 +84,8 @@ body {
     background: white;
     border: 1px solid #8a868e;
     display: inline-block;
-    width: 5em;
-    height: 5em;
+    width: 4em;
+    height: 4em;
     list-style: none;
     position: relative;
     margin: 2em;
@@ -96,7 +96,8 @@ body {
       position: absolute;
       bottom: -1.6em;
       display: block;
-      width: 9em;
+      white-space: nowrap;
+      font-size: 0.9em;
       pointer-events: none;
     }
 
@@ -120,18 +121,23 @@ body {
 }
 
 #events > li {
-  @include transition(0.3s border);
+  @include transition(0.3s);
   background: #eee;
 
   &.over {
     border-color: black;
+    background: #ccc;
   }
 }
 
+.enable-transition {
+  @include transition(0.5s);
+}
+
 .item-dropped {
-  @include animation('scale .5s');
+  @include animation('scale 0.5s');
 }
 
 .item-duplicate {
-  @include animation('shake .35s');
+  @include animation('shake 0.35s');
 }
