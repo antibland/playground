@@ -1,11 +1,12 @@
 "use strict";
 var Drag = {
-  drag_src_el  : null,
-  draggable_els: null,
-  target_els   : null,
-  positions    : [],
-  circle       : { width: 87 },
-  colliding    : false,
+  drag_src_el      : null,
+  draggable_els    : null,
+  target_els       : null,
+  positions        : [],
+  circle           : { width: 87 },
+  colliding        : false,
+  positions_loaded : false,
 
   utils: {
     isTouchDevice: function() {
@@ -83,6 +84,10 @@ var Drag = {
     this.startx = parseInt(this.touchobj.clientX) // get x coord of touch point
     this.starty = parseInt(this.touchobj.clientY) // get y coord of touch point
 
+    if (!this.positions_loaded) {
+      this.loadPositions();
+    }
+
     if (e.preventDefault) {
       e.preventDefault();
     }
@@ -103,7 +108,6 @@ var Drag = {
       e.preventDefault();
     }
 
-    this.updatePositions();
     this.detectCollision(e);
   },
 
@@ -111,7 +115,7 @@ var Drag = {
     if (this.colliding) { this.handleDrop(e); }
   },
 
-  updatePositions: function() {
+  loadPositions: function() {
     var targets = this.utils.getTargetElements(),
         len     = targets.length,
         that    = this,
@@ -123,6 +127,8 @@ var Drag = {
       rect = target.getBoundingClientRect();
       that.positions.push([rect.left, rect.top]);
     });
+
+    this.positions_loaded = true;
   },
 
   detectCollision: function(e) {
