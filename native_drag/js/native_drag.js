@@ -21,6 +21,14 @@ var Drag = {
 
     getTargetElements: function() {
       return document.querySelectorAll(".event");
+    },
+
+    removeTargetStyles: function(class_name) {
+      var targets = Drag.utils.getTargetElements();
+
+      [].forEach.call(targets, function(target) {
+        target.classList.remove(class_name);
+      });
     }
   },
 
@@ -163,6 +171,8 @@ var Drag = {
         that           = this,
         x2, y2, dx, dy, distance;
 
+    this.utils.removeTargetStyles("over");
+
     for (var i = 0; i < len; i++) {
       x2 = that.positions[i][0];
       y2 = that.positions[i][1];
@@ -287,6 +297,7 @@ var Drag = {
   },
 
   handleDragEnter: function(e) {
+    this.utils.removeTargetStyles("over");
     e.target.classList.add("over");
   },
 
