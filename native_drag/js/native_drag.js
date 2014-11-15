@@ -23,12 +23,16 @@ var Drag = {
       return document.querySelectorAll(".event");
     },
 
-    removeTargetStyles: function(class_name) {
+    removeTargetStyles: function(class_name, e) {
       var targets = Drag.utils.getTargetElements();
 
       [].forEach.call(targets, function(target) {
         target.classList.remove(class_name);
       });
+
+      if (typeof e !== "undefined") {
+        e.target.classList.add("over");
+      }
     }
   },
 
@@ -297,8 +301,7 @@ var Drag = {
   },
 
   handleDragEnter: function(e) {
-    this.utils.removeTargetStyles("over");
-    e.target.classList.add("over");
+    this.utils.removeTargetStyles("over", e);
   },
 
   handleDragLeave: function(e) {
