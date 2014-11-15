@@ -485,8 +485,30 @@ body {
 #friends > li {
   z-index: 100;
 }
+/* line 122, ../sass/main.scss */
+#friends > li.clone {
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  -moz-transform: scale3d(1, 1, 1);
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  z-index: 1;
+  position: absolute;
+}
+/* line 129, ../sass/main.scss */
+#friends > li.clone.shown {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+  -moz-transform: scale3d(0.8, 0.8, 1);
+  -webkit-transform: scale3d(0.8, 0.8, 1);
+  transform: scale3d(0.8, 0.8, 1);
+}
 
-/* line 123, ../sass/main.scss */
+/* line 136, ../sass/main.scss */
 #events > li {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -494,13 +516,13 @@ body {
   transition: 0.3s;
   background: #eee;
 }
-/* line 127, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 #events > li.over {
   border-color: black;
   background: #ccc;
 }
 
-/* line 133, ../sass/main.scss */
+/* line 146, ../sass/main.scss */
 .enable-transition {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -508,7 +530,7 @@ body {
   transition: 0.5s;
 }
 
-/* line 137, ../sass/main.scss */
+/* line 150, ../sass/main.scss */
 .item-dropped {
   -webkit-animation: scale 0.5s;
   -moz-animation: scale 0.5s;
@@ -516,7 +538,7 @@ body {
   animation: scale 0.5s;
 }
 
-/* line 141, ../sass/main.scss */
+/* line 154, ../sass/main.scss */
 .item-duplicate {
   -webkit-animation: shake 0.35s;
   -moz-animation: shake 0.35s;

@@ -63,12 +63,25 @@ var Drag = {
 
   touchSupport: function() {
     if (this.utils.isTouchDevice()) {
-      var style;
+      var style, clone, bounds, clone_left, clone_top,
+          that = this,
+          cloneElement = function(el) {
+            bounds = el.getBoundingClientRect();
+            clone_left = bounds.left - that.circle.width * .5 + "px";
+            clone_top = bounds.top - that.circle.width * .5 + "px";
+
+            clone = el.cloneNode(true);
+            clone.classList.add("clone");
+            clone.setAttribute("style", "left:" + clone_left + ";top:" + clone_top + ";");
+            el.insertAdjacentElement("afterend", clone);
+          };
 
       [].forEach.call(this.draggable_els, function(el) {
         el.removeAttribute("draggable");
         style = "left:0; top:0";
         el.setAttribute("style", style);
+
+        cloneElement(el);
       });
     }
   },
@@ -85,6 +98,7 @@ var Drag = {
     this.starty = parseInt(this.touchobj.clientY) // get y coord of touch point
 
     this.resetTargetStates();
+    target.nextSibling.classList.add("shown");
 
     if (!this.positions_loaded) {
       this.loadPositions();
@@ -216,6 +230,7 @@ var Drag = {
 
     if (this.utils.isTouchDevice()) {
       e.target.setAttribute("aria-grabbed", "false");
+      e.target.nextSibling.classList.remove("shown");
     }
   },
 

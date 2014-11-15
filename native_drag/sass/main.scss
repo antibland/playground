@@ -118,6 +118,19 @@ body {
 
 #friends > li {
   z-index: 100;
+
+  &.clone {
+    @include transition(0.4s);
+    @include scale3d(1, 1, 1);
+    @include opacity(0);
+    z-index: 1;
+    position: absolute;
+
+    &.shown {
+      @include opacity(0.3);
+      @include scale3d(0.8, 0.8, 1);
+    }
+  }
 }
 
 #events > li {
