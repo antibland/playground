@@ -226,6 +226,9 @@ var Drag = {
           touch_target.style.top = 0;
           touch_target.style.left = 0;
           touch_target.nextSibling.classList.remove("shown");
+        },
+        incrementFriendCount = function() {
+          friends_list.dataset.listSize = friends_list.querySelectorAll("li").length;
         };
 
     this.preventBrowserRedirect(e);
@@ -239,6 +242,7 @@ var Drag = {
 
     if (this.addItemToList(friends_list, friend_text) === true) {
       target.classList.add("item-dropped");
+      incrementFriendCount();
     } else {
       target.classList.add("item-duplicate");
     }
