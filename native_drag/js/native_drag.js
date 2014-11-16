@@ -79,8 +79,8 @@ var Drag = {
           that = this,
           cloneElement = function(el) {
             bounds = el.getBoundingClientRect();
-            clone_left = bounds.left - that.circle.width * .5 + "px";
-            clone_top = bounds.top - that.circle.width * .5 + "px";
+            clone_left = bounds.left - that.circle.width * .25 + "px";
+            clone_top = bounds.top - that.circle.width * .35 + "px";
 
             clone = el.cloneNode(true);
             clone.classList.add("clone");
@@ -218,7 +218,15 @@ var Drag = {
   handleDrop: function(e) {
     var friend_text  = this.getFriendText(),
         friends_list = null,
-        target       = document.querySelector(".over");
+        target       = document.querySelector(".over"),
+        returnHome   = function(e) {
+          var touch_target = e.target;
+          touch_target.setAttribute("aria-grabbed", "false");
+          touch_target.classList.add("enable-transition");
+          touch_target.style.top = 0;
+          touch_target.style.left = 0;
+          touch_target.nextSibling.classList.remove("shown");
+        };
 
     this.preventBrowserRedirect(e);
 
@@ -231,20 +239,12 @@ var Drag = {
 
     if (this.addItemToList(friends_list, friend_text) === true) {
       target.classList.add("item-dropped");
-
-      if (this.utils.isTouchDevice()) {
-        var touch_target = e.target;
-        touch_target.classList.add("enable-transition");
-        touch_target.style.top = 0;
-        touch_target.style.left = 0;
-      }
     } else {
       target.classList.add("item-duplicate");
     }
 
     if (this.utils.isTouchDevice()) {
-      e.target.setAttribute("aria-grabbed", "false");
-      e.target.nextSibling.classList.remove("shown");
+      returnHome(e);
     }
   },
 
@@ -263,7 +263,11 @@ var Drag = {
   addItemToList: function(list, new_item_text) {
     var items     = list.querySelectorAll("li"),
         duplicate = false,
-        new_item;
+        addItem   = function() {
+          var new_item = document.createElement("li");
+          new_item.innerHTML = new_item_text;
+          list.appendChild(new_item);
+        };
 
     [].forEach.call(items, function (item) {
       if (item.innerHTML === new_item_text) {
@@ -272,9 +276,7 @@ var Drag = {
     });
 
     if (!duplicate) {
-      new_item = document.createElement("li");
-      new_item.innerHTML = new_item_text;
-      list.appendChild(new_item);
+      addItem();
     }
 
     return !duplicate;

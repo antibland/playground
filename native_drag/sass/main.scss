@@ -84,8 +84,8 @@ body {
     background: white;
     border: 1px solid #8a868e;
     display: inline-block;
-    width: 4em;
-    height: 4em;
+    width: 6em;
+    height: 6em;
     list-style: none;
     position: relative;
     margin: 2em;
@@ -93,18 +93,17 @@ body {
 
     .event-name,
     .friend-name {
-      position: absolute;
-      bottom: -1.6em;
+      @include transform(translateY(46%));
       display: block;
-      white-space: nowrap;
       font-size: 0.9em;
       pointer-events: none;
+      height: 100%;
+      text-align: center;
     }
 
     ul {
       position: absolute;
-      bottom: -3.5em;
-      height: 1em;
+      visibility: hidden;
     }
 
     li {

@@ -446,8 +446,8 @@ body {
   background: white;
   border: 1px solid #8a868e;
   display: inline-block;
-  width: 4em;
-  height: 4em;
+  width: 6em;
+  height: 6em;
   list-style: none;
   position: relative;
   margin: 2em;
@@ -458,21 +458,23 @@ body {
 #friends > li .friend-name,
 #events > li .event-name,
 #events > li .friend-name {
-  position: absolute;
-  bottom: -1.6em;
+  -moz-transform: translateY(46%);
+  -ms-transform: translateY(46%);
+  -webkit-transform: translateY(46%);
+  transform: translateY(46%);
   display: block;
-  white-space: nowrap;
   font-size: 0.9em;
   pointer-events: none;
+  height: 100%;
+  text-align: center;
 }
 /* line 104, ../sass/main.scss */
 #friends > li ul,
 #events > li ul {
   position: absolute;
-  bottom: -3.5em;
-  height: 1em;
+  visibility: hidden;
 }
-/* line 110, ../sass/main.scss */
+/* line 109, ../sass/main.scss */
 #friends > li li,
 #events > li li {
   list-style: disc;
@@ -481,11 +483,11 @@ body {
   font-size: 0.8em;
 }
 
-/* line 119, ../sass/main.scss */
+/* line 118, ../sass/main.scss */
 #friends > li {
   z-index: 100;
 }
-/* line 122, ../sass/main.scss */
+/* line 121, ../sass/main.scss */
 #friends > li.clone {
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
@@ -499,7 +501,7 @@ body {
   z-index: 1;
   position: absolute;
 }
-/* line 129, ../sass/main.scss */
+/* line 128, ../sass/main.scss */
 #friends > li.clone.shown {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
@@ -508,7 +510,7 @@ body {
   transform: scale3d(0.8, 0.8, 1);
 }
 
-/* line 136, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 #events > li {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -516,13 +518,13 @@ body {
   transition: 0.3s;
   background: #eee;
 }
-/* line 140, ../sass/main.scss */
+/* line 139, ../sass/main.scss */
 #events > li.over {
   border-color: black;
   background: #ccc;
 }
 
-/* line 146, ../sass/main.scss */
+/* line 145, ../sass/main.scss */
 .enable-transition {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -530,7 +532,7 @@ body {
   transition: 0.5s;
 }
 
-/* line 150, ../sass/main.scss */
+/* line 149, ../sass/main.scss */
 .item-dropped {
   -webkit-animation: scale 0.5s;
   -moz-animation: scale 0.5s;
@@ -538,7 +540,7 @@ body {
   animation: scale 0.5s;
 }
 
-/* line 154, ../sass/main.scss */
+/* line 153, ../sass/main.scss */
 .item-duplicate {
   -webkit-animation: shake 0.35s;
   -moz-animation: shake 0.35s;
