@@ -659,9 +659,9 @@ body {
 .overlay .invitees button,
 .overlay textarea,
 .overlay [type="submit"] {
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
-  border-radius: 0.5em;
+  -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  border-radius: 0.3em;
 }
 /* line 250, ../sass/main.scss */
 .overlay .invitees {
@@ -670,7 +670,7 @@ body {
 /* line 253, ../sass/main.scss */
 .overlay .invitees li {
   color: white;
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin-bottom: 0.5em;
 }
 /* line 259, ../sass/main.scss */
@@ -680,19 +680,22 @@ body {
 }
 /* line 264, ../sass/main.scss */
 .overlay .invitees button {
+  font-size: 0.8em;
   border: none;
   background: lightblue;
 }
-/* line 267, ../sass/main.scss */
+/* line 268, ../sass/main.scss */
 .overlay .invitees button:active {
   background: lightblue;
 }
-/* line 270, ../sass/main.scss */
+/* line 271, ../sass/main.scss */
 .overlay .invitees button:focus {
   outline: none;
 }
-/* line 276, ../sass/main.scss */
+/* line 277, ../sass/main.scss */
 .overlay [type=submit] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   text-shadow: 0 1px 2px #eee;
   border: none;
   background: lightblue;
@@ -701,16 +704,16 @@ body {
   float: right;
   padding: 0.4em;
 }
-/* line 290, ../sass/main.scss */
+/* line 292, ../sass/main.scss */
 .overlay header {
   margin: 1em 0;
 }
-/* line 294, ../sass/main.scss */
+/* line 296, ../sass/main.scss */
 .overlay h1 {
   font-size: 2.2em;
   color: white;
 }
-/* line 299, ../sass/main.scss */
+/* line 301, ../sass/main.scss */
 .overlay textarea {
   border: none;
   font-size: 1.5em;

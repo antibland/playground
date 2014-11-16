@@ -244,7 +244,7 @@ body {
   .invitees button,
   textarea,
   [type="submit"] {
-    @include border-radius(0.5em);
+    @include border-radius(0.3em);
   }
 
   .invitees {
@@ -252,7 +252,7 @@ body {
 
     li {
       color: white;
-      font-size: 1.2em;
+      font-size: 1.5em;
       margin-bottom: 0.5em;
     }
 
@@ -262,6 +262,7 @@ body {
     }
 
     button {
+      font-size: 0.8em;
       border: none;
       background: lightblue;
       &:active {
@@ -274,6 +275,7 @@ body {
   }
 
   [type=submit] {
+    @include appearance(none);
     @include text-shadow(0 1px 2px #eee);
     border: none;
     background: lightblue;
