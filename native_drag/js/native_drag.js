@@ -7,6 +7,59 @@ var Drag = {
   circle           : { width:  document.querySelector(".event").offsetWidth },
   colliding        : false,
 
+  modal: {
+    create: function(obj) {
+      var default_msg = "Please come to this thing, everyone!",
+          list        = obj.friends_list,
+          overlay     = obj.overlay,
+          event_title = obj.event_title,
+          friends     = list.querySelectorAll("li"),
+          close_btn;
+
+      overlay.innerHTML = "<div" +
+                            "aria-labelledby='event-title-header' " +
+                            "role='dialog' " +
+                            "class='modal' " +
+                            "tabindex='-1'>" +
+
+                            "<header><h1 tabindex='0' id='event-title-header'>" +
+                              event_title +
+                            "</h1></header>" +
+
+                            "<div class='contents'>" +
+                              "<form method='get' id='invite-form'>" +
+                                "<textarea>" +
+                                  default_msg +
+                                "</textarea>" +
+                                "<div class='invitees'><ul>" +
+                                  obj.friends_list.innerHTML +
+                                "</ul></div>" +
+                                "<input onclick='Drag.modal.hide()' type='submit' value='Send'>" +
+                              "</form>" +
+                            "</div>" +
+
+                            "<button tabindex='0' onclick='Drag.modal.hide()' aria-label='close dialog' value='close dialog'>" +
+                            "</button>" +
+                          "</div>";
+    },
+
+    show: function(obj) {
+      this.create(obj);
+      obj.overlay.setAttribute("aria-hidden", "false");
+      obj.overlay.querySelector(".modal").focus();
+    },
+
+    hide: function() {
+      var overlay = document.querySelector(".overlay");
+      overlay.setAttribute("aria-hidden", "true");
+      overlay.innerHTML = "";
+    },
+
+    isOpen: function() {
+      return document.querySelector(".overlay").getAttribute("aria-hidden") === "false";
+    }
+  },
+
   utils: {
     isTouchDevice: function() {
       return (('ontouchstart' in window)
@@ -69,7 +122,35 @@ var Drag = {
       el.addEventListener('dragleave', function(e) { that.handleDragLeave(e); });
       el.addEventListener('dragover', function(e) { that.handleDragOver(e); });
       el.addEventListener('drop', function(e) { that.handleDrop(e); });
+      el.addEventListener('click', function(e) { that.handleTarget(e); });
+      el.addEventListener('touchstart', function(e) { that.handleTarget(e); });
     });
+
+    document.onkeydown = function(e) {
+      var ESCAPE = 27;
+      e = e || window.event;
+
+      if (e.keyCode == ESCAPE && Drag.modal.isOpen()) {
+        Drag.modal.hide();
+      }
+    };
+  },
+
+  handleTarget: function(e) {
+    var target = e.target,
+        list   = target.querySelector("ul") || undefined,
+        event_title;
+
+    if (typeof list !== "undefined") {
+      event_title = target.querySelector(".event-name").innerHTML;
+
+      this.modal.show({
+        overlay     : document.querySelector(".overlay"),
+        event_title : event_title,
+        num_friends : list.dataset.listSize,
+        friends_list: list
+      });
+    }
   },
 
   touchSupport: function() {
@@ -79,7 +160,7 @@ var Drag = {
           cloneElement = function(el) {
             bounds = el.getBoundingClientRect();
             clone_left = bounds.left - that.circle.width * .25 + "px";
-            clone_top = bounds.top - that.circle.width * .35 + "px";
+            clone_top = bounds.top - that.circle.width * .25 + "px";
 
             clone = el.cloneNode(true);
             clone.classList.add("clone");
@@ -258,12 +339,35 @@ var Drag = {
     });
   },
 
+  removeInvitee: function(btn) {
+    var li  = btn.parentNode;
+    li.classList.add("item-remove-row");
+    return false;
+  },
+
   addItemToList: function(list, new_item_text) {
-    var items     = list.querySelectorAll("li"),
-        duplicate = false,
-        addItem   = function() {
-          var new_item = document.createElement("li");
-          new_item.innerHTML = new_item_text;
+    var items            = list.querySelectorAll("li .invitee-name"),
+        duplicate        = false,
+        addItem          = function() {
+          var new_item   = document.createElement("li"),
+              remove_btn = document.createElement("button"),
+              item_txt   = document.createTextNode(new_item_text),
+              item_span  = document.createElement("span"),
+              btn_txt    = document.createTextNode("remove");
+
+          remove_btn.setAttribute("value", "remove " + new_item_text);
+          remove_btn.setAttribute("aria-label", "remove " + new_item_text);
+          remove_btn.setAttribute("tabindex", "0");
+          remove_btn.setAttribute("onclick", "return Drag.removeInvitee(this)");
+          remove_btn.appendChild(btn_txt);
+
+          item_span.className = "invitee-name";
+          item_span.setAttribute("tabindex", "0");
+          item_span.appendChild(item_txt);
+
+          new_item.appendChild(item_span);
+          new_item.appendChild(remove_btn);
+
           list.appendChild(new_item);
         };
 
