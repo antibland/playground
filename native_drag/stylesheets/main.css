@@ -473,8 +473,11 @@ body {
 #events > li ul {
   position: absolute;
   visibility: hidden;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
 }
-/* line 109, ../sass/main.scss */
+/* line 112, ../sass/main.scss */
 #friends > li li,
 #events > li li {
   list-style: disc;
@@ -483,11 +486,11 @@ body {
   font-size: 0.8em;
 }
 
-/* line 118, ../sass/main.scss */
+/* line 121, ../sass/main.scss */
 #friends > li {
   z-index: 100;
 }
-/* line 121, ../sass/main.scss */
+/* line 124, ../sass/main.scss */
 #friends > li.clone {
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
@@ -501,7 +504,7 @@ body {
   z-index: 1;
   position: absolute;
 }
-/* line 128, ../sass/main.scss */
+/* line 131, ../sass/main.scss */
 #friends > li.clone.shown {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
@@ -510,7 +513,7 @@ body {
   transform: scale3d(0.8, 0.8, 1);
 }
 
-/* line 135, ../sass/main.scss */
+/* line 138, ../sass/main.scss */
 #events > li {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -518,13 +521,13 @@ body {
   transition: 0.3s;
   background: #eee;
 }
-/* line 139, ../sass/main.scss */
+/* line 142, ../sass/main.scss */
 #events > li.over {
   border-color: black;
   background: #ccc;
 }
 
-/* line 145, ../sass/main.scss */
+/* line 148, ../sass/main.scss */
 .enable-transition {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -532,7 +535,7 @@ body {
   transition: 0.5s;
 }
 
-/* line 149, ../sass/main.scss */
+/* line 152, ../sass/main.scss */
 .item-dropped {
   -webkit-animation: scale 0.5s;
   -moz-animation: scale 0.5s;
@@ -540,7 +543,7 @@ body {
   animation: scale 0.5s;
 }
 
-/* line 153, ../sass/main.scss */
+/* line 156, ../sass/main.scss */
 .item-duplicate {
   -webkit-animation: shake 0.35s;
   -moz-animation: shake 0.35s;

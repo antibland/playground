@@ -6,7 +6,6 @@ var Drag = {
   positions        : [],
   circle           : { width:  document.querySelector(".event").offsetWidth },
   colliding        : false,
-  positions_loaded : false,
 
   utils: {
     isTouchDevice: function() {
@@ -111,10 +110,7 @@ var Drag = {
 
     this.resetTargetStates();
     target.nextSibling.classList.add("shown");
-
-    if (!this.positions_loaded) {
-      this.loadPositions();
-    }
+    this.loadPositions();
 
     if (e.preventDefault) {
       e.preventDefault();
@@ -159,8 +155,6 @@ var Drag = {
       rect = target.getBoundingClientRect();
       that.positions.push([rect.left, rect.top]);
     });
-
-    this.positions_loaded = true;
   },
 
   detectCollision: function(e) {

@@ -104,6 +104,9 @@ body {
     ul {
       position: absolute;
       visibility: hidden;
+      pointer-events: none;
+      height: 0;
+      overflow: hidden;
     }
 
     li {
