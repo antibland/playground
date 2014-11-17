@@ -1,32 +1,8 @@
 @import "compass/reset";
 @import "compass/css3";
-
-$break-small: 600px;
-
-%close-button {
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  top: 2.5em;
-  right: -0.3em;
-  cursor: pointer;
-  outline: none;
-  &:focus {
-    outline: none;
-  }
-
-  &:before {
-    @include border-radius(50%);
-    display: block;
-    content:"\00d7";
-    width: 1.2em;
-    height: 1.2em;
-    line-height: 1em;
-    font-size: 2em;
-    background: black;
-    color: white;
-  }
-}
+@import "variables";
+@import "mixins";
+@import "animations";
 
 * {
   @include box-sizing(border-box);
@@ -37,62 +13,10 @@ $break-small: 600px;
   }
 }
 
-@mixin animation($animate...) {
-  $max: length($animate);
-  $animations: '';
-
-  @for $i from 1 through $max {
-      $animations: #{$animations + nth($animate, $i)};
-
-      @if $i < $max {
-          $animations: #{$animations + ", "};
-      }
-  }
-  -webkit-animation: $animations;
-  -moz-animation:    $animations;
-  -o-animation:      $animations;
-  animation:         $animations;
-}
-
-@mixin keyframes($animationName) {
-  @-webkit-keyframes #{$animationName} {
-      @content;
-  }
-  @-moz-keyframes #{$animationName} {
-      @content;
-  }
-  @-o-keyframes #{$animationName} {
-      @content;
-  }
-  @keyframes #{$animationName} {
-      @content;
-  }
-}
-
-@include keyframes(scale) {
-  0% { @include scale3d(1, 1, 1) }
-  50% { @include scale3d(1.1, 1.1, 1) }
-  100% { @include scale3d(1, 1, 1) }
-}
-
-@include keyframes(shake) {
-  0% { @include transform(translate(2px, 0px) rotate(0deg)); }
-  10% { @include transform(translate(-1px, 0px) rotate(-1deg)); }
-  20% { @include transform(translate(-3px, 0px) rotate(1deg)); }
-  30% { @include transform(translate(0px, 0px) rotate(0deg)); }
-  40% { @include transform(translate(1px, 0px) rotate(1deg)); }
-  50% { @include transform(translate(-1px, 0px) rotate(-1deg)); }
-  60% { @include transform(translate(-3px, 0px) rotate(0deg)); }
-  70% { @include transform(translate(2px, 1px) rotate(-1deg)); }
-  80% { @include transform(translate(-1px, -1px) rotate(1deg)); }
-  90% { @include transform(translate(2px, 0px) rotate(0deg)); }
-  100% { @include transform(translate(1px, 0px) rotate(-1deg)); }
-}
-
 body {
-  font-size: 62.5%;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: $font_stack;
   font-weight: 300;
+  font-size: 62.5%;
 }
 
 [draggable="true"] {
@@ -122,7 +46,7 @@ body {
     width: 7em;
     height: 7em;
     background: white;
-    border: 1px solid #8a868e;
+    border: 1px solid $circle_border_color;
     display: inline-block;
     list-style: none;
     position: relative;
@@ -172,11 +96,11 @@ body {
 
 #events > li {
   @include transition(0.3s);
-  background: #eee;
+  background: $light_gray;
 
   &.over {
     border-color: black;
-    background: #ccc;
+    background: $touch_hover_background_color;
   }
 }
 
@@ -219,20 +143,22 @@ body {
     display: none;
   }
 
-
-  .modal {
+  [role=dialog] {
     @include transform(translateY(-50%));
+    @include border-radius(0.6em);
+    padding: 0.75em 1em;
     margin: 0 auto;
     display: table;
     position: relative;
     top: 50%;
     width: 50em;
-    padding: 0 1em;
+    border: 1px solid $light_gray;
+    outline: none;
 
     @media screen and (max-width: $break-small) {
       @include transform(translateY(0));
-      width: 100%;
-      top: 0;
+      width: 92%;
+      top: 2em;
     }
   }
 
@@ -252,7 +178,7 @@ body {
 
     li {
       color: white;
-      font-size: 1.5em;
+      font-size: 1.6em;
       margin-bottom: 0.5em;
     }
 
@@ -276,7 +202,7 @@ body {
 
   [type=submit] {
     @include appearance(none);
-    @include text-shadow(0 1px 2px #eee);
+    @include text-shadow(0 1px 2px $light_gray);
     border: none;
     background: lightblue;
     color: black;
@@ -305,5 +231,14 @@ body {
     width: 100%;
     height: 9.7em;
     margin-bottom: 0.5em;
+  }
+
+  .success {
+    @include border-radius(0.3em);
+    background: white;
+    color: black;
+    padding: 2em;
+    font-size: 1.6em;
+    text-align: center;
   }
 }

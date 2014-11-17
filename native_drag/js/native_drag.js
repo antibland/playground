@@ -27,14 +27,14 @@ var Drag = {
                             "</h1></header>" +
 
                             "<div class='contents'>" +
-                              "<form method='get' id='invite-form'>" +
+                              "<form onsubmit='return Drag.modal.success();' method='get' id='invite-form'>" +
                                 "<textarea>" +
                                   default_msg +
                                 "</textarea>" +
                                 "<div class='invitees'><ul>" +
                                   obj.friends_list.innerHTML +
                                 "</ul></div>" +
-                                "<input onclick='Drag.modal.hide()' type='submit' value='Send'>" +
+                                "<input type='submit' value='Send'>" +
                               "</form>" +
                             "</div>" +
 
@@ -57,6 +57,12 @@ var Drag = {
 
     isOpen: function() {
       return document.querySelector(".overlay").getAttribute("aria-hidden") === "false";
+    },
+
+    success: function() {
+      var dialog_contents = document.querySelector("[role=dialog] .contents");
+      dialog_contents.innerHTML = "<p class='success'>Sent! Have a great time.</p>";
+      return false;
     }
   },
 
@@ -138,15 +144,14 @@ var Drag = {
 
   handleTarget: function(e) {
     var target = e.target,
-        list   = target.querySelector("ul") || undefined,
-        event_title;
+        list   = target.querySelector("ul") || undefined;
 
-    if (typeof list !== "undefined") {
-      event_title = target.querySelector(".event-name").innerHTML;
+    if (typeof list !== "undefined" && list.dataset.listSize > 0) {
+      this.utils.removeTargetStyles("over", e);
 
       this.modal.show({
         overlay     : document.querySelector(".overlay"),
-        event_title : event_title,
+        event_title : target.querySelector(".event-name").innerHTML,
         num_friends : list.dataset.listSize,
         friends_list: list
       });
@@ -183,9 +188,9 @@ var Drag = {
         obj_left_pos = target.style.left || target.offsetLeft,
         obj_top_pos  = target.style.top || target.offsetTop;
 
-    this.touchobj = e.changedTouches[0] // reference first touch point
-    this.obj_left = parseInt(obj_left_pos) // get left position of box
-    this.obj_top  = parseInt(obj_top_pos)  // get top position of box
+    this.touchobj = e.changedTouches[0]           // reference first touch point
+    this.obj_left = parseInt(obj_left_pos)        // get left position of box
+    this.obj_top  = parseInt(obj_top_pos)         // get top position of box
     this.startx = parseInt(this.touchobj.clientX) // get x coord of touch point
     this.starty = parseInt(this.touchobj.clientY) // get y coord of touch point
 
@@ -339,9 +344,31 @@ var Drag = {
     });
   },
 
-  removeInvitee: function(btn) {
-    var li  = btn.parentNode;
+  removeInvitee: function(btn, invitee_name) {
+    var li           = btn.parentNode,
+        invitee_list = document.querySelector(".over ul"),
+        invitees     = invitee_list.querySelectorAll("li"),
+        tmp_name;
+
+    // visually remove the invitee
     li.classList.add("item-remove-row");
+
+    // actually remove the invitee from the target list
+    [].forEach.call(invitees, function(invitee) {
+      tmp_name = invitee.querySelector(".invitee-name").innerHTML;
+
+      if (tmp_name === invitee_name) {
+        invitee.parentNode.removeChild(invitee);
+      }
+    });
+
+    invitee_list.dataset.listSize--;
+
+    if (invitee_list.dataset.listSize <= 0) {
+      li.parentNode.innerHTML = "<li>You&rsquo;ve removed all event invites.</li>";
+      document.querySelector(".modal [type=submit]").setAttribute("disabled", "disabled");
+    }
+
     return false;
   },
 
@@ -358,7 +385,7 @@ var Drag = {
           remove_btn.setAttribute("value", "remove " + new_item_text);
           remove_btn.setAttribute("aria-label", "remove " + new_item_text);
           remove_btn.setAttribute("tabindex", "0");
-          remove_btn.setAttribute("onclick", "return Drag.removeInvitee(this)");
+          remove_btn.setAttribute("onclick", "return Drag.removeInvitee(this, '" + new_item_text +"')");
           remove_btn.appendChild(btn_txt);
 
           item_span.className = "invitee-name";

@@ -63,46 +63,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 6, ../sass/main.scss */
+/* line 33, ../sass/_mixins.scss */
 .overlay [aria-label='close dialog'] {
   background-color: transparent;
   border: none;
   position: absolute;
-  top: 2.5em;
-  right: -0.3em;
+  top: -1.2em;
+  right: -1.8em;
   cursor: pointer;
   outline: none;
+  line-height: 2.2em;
 }
-/* line 14, ../sass/main.scss */
+/* line 43, ../sass/_mixins.scss */
 .overlay [aria-label='close dialog']:focus {
   outline: none;
 }
-/* line 18, ../sass/main.scss */
+/* line 47, ../sass/_mixins.scss */
 .overlay [aria-label='close dialog']:before {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
   content: "\00d7";
-  width: 1.2em;
-  height: 1.2em;
-  line-height: 1em;
-  font-size: 2em;
+  width: 26px;
+  height: 26px;
+  font-size: 1.8em;
   background: black;
   color: white;
-}
-
-/* line 31, ../sass/main.scss */
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-/* line 34, ../sass/main.scss */
-*:after, *:before {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 @-webkit-keyframes scale {
@@ -445,14 +433,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: translate(1px, 0px) rotate(-1deg);
   }
 }
-/* line 92, ../sass/main.scss */
-body {
-  font-size: 62.5%;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
+/* line 7, ../sass/main.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 10, ../sass/main.scss */
+*:after, *:before {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-/* line 98, ../sass/main.scss */
+/* line 16, ../sass/main.scss */
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 62.5%;
+}
+
+/* line 22, ../sass/main.scss */
 [draggable="true"] {
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
@@ -467,7 +468,7 @@ body {
   -webkit-user-drag: element;
   cursor: move;
 }
-/* line 108, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 [draggable="true"][aria-grabbed="true"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
@@ -475,13 +476,13 @@ body {
   -webkit-transform: scale3d(0.8, 0.8, 1);
   transform: scale3d(0.8, 0.8, 1);
 }
-/* line 113, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
 [draggable="true"][aria-grabbed="false"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 120, ../sass/main.scss */
+/* line 44, ../sass/main.scss */
 #friends > li,
 #events > li {
   -moz-border-radius: 6em;
@@ -497,7 +498,7 @@ body {
   margin: 2em;
   font-size: 1.3em;
 }
-/* line 132, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
 #friends > li .event-name,
 #friends > li .friend-name,
 #events > li .event-name,
@@ -512,14 +513,14 @@ body {
   height: 100%;
   text-align: center;
 }
-/* line 142, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 #friends > li ul,
 #events > li ul {
   position: absolute;
   visibility: hidden;
   pointer-events: none;
 }
-/* line 148, ../sass/main.scss */
+/* line 72, ../sass/main.scss */
 #friends > li li,
 #events > li li {
   position: absolute;
@@ -527,11 +528,11 @@ body {
   pointer-events: none;
 }
 
-/* line 156, ../sass/main.scss */
+/* line 80, ../sass/main.scss */
 #friends > li {
   z-index: 100;
 }
-/* line 159, ../sass/main.scss */
+/* line 83, ../sass/main.scss */
 #friends > li.clone {
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
@@ -545,7 +546,7 @@ body {
   z-index: 1;
   position: absolute;
 }
-/* line 166, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 #friends > li.clone.shown {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
@@ -554,7 +555,7 @@ body {
   transform: scale3d(0.8, 0.8, 1);
 }
 
-/* line 173, ../sass/main.scss */
+/* line 97, ../sass/main.scss */
 #events > li {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -562,13 +563,13 @@ body {
   transition: 0.3s;
   background: #eee;
 }
-/* line 177, ../sass/main.scss */
+/* line 101, ../sass/main.scss */
 #events > li.over {
   border-color: black;
   background: #ccc;
 }
 
-/* line 183, ../sass/main.scss */
+/* line 107, ../sass/main.scss */
 .enable-transition {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -576,7 +577,7 @@ body {
   transition: 0.5s;
 }
 
-/* line 187, ../sass/main.scss */
+/* line 111, ../sass/main.scss */
 .item-dropped {
   -webkit-animation: scale 0.5s;
   -moz-animation: scale 0.5s;
@@ -584,7 +585,7 @@ body {
   animation: scale 0.5s;
 }
 
-/* line 191, ../sass/main.scss */
+/* line 115, ../sass/main.scss */
 .item-duplicate {
   -webkit-animation: shake 0.35s;
   -moz-animation: shake 0.35s;
@@ -592,7 +593,7 @@ body {
   animation: shake 0.35s;
 }
 
-/* line 195, ../sass/main.scss */
+/* line 119, ../sass/main.scss */
 .item-remove-row {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -607,7 +608,7 @@ body {
   pointer-events: none;
 }
 
-/* line 205, ../sass/main.scss */
+/* line 129, ../sass/main.scss */
 .overlay {
   position: fixed;
   top: 0;
@@ -618,44 +619,49 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   /*dim the background*/
 }
-/* line 214, ../sass/main.scss */
+/* line 138, ../sass/main.scss */
 .overlay[aria-hidden="false"] {
   display: block;
 }
-/* line 218, ../sass/main.scss */
+/* line 142, ../sass/main.scss */
 .overlay[aria-hidden="true"] {
   display: none;
 }
-/* line 223, ../sass/main.scss */
-.overlay .modal {
+/* line 146, ../sass/main.scss */
+.overlay [role=dialog] {
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+  -moz-border-radius: 0.6em;
+  -webkit-border-radius: 0.6em;
+  border-radius: 0.6em;
+  padding: 0.75em 1em;
   margin: 0 auto;
   display: table;
   position: relative;
   top: 50%;
   width: 50em;
-  padding: 0 1em;
+  border: 1px solid #eee;
+  outline: none;
 }
 @media screen and (max-width: 600px) {
-  /* line 223, ../sass/main.scss */
-  .overlay .modal {
+  /* line 146, ../sass/main.scss */
+  .overlay [role=dialog] {
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
     -webkit-transform: translateY(0);
     transform: translateY(0);
-    width: 100%;
-    top: 0;
+    width: 92%;
+    top: 2em;
   }
 }
-/* line 239, ../sass/main.scss */
+/* line 165, ../sass/main.scss */
 .overlay .invitee-name,
 .overlay h1 {
   text-shadow: 0 1px 2px #333;
 }
-/* line 244, ../sass/main.scss */
+/* line 170, ../sass/main.scss */
 .overlay .invitees button,
 .overlay textarea,
 .overlay [type="submit"] {
@@ -663,36 +669,36 @@ body {
   -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
 }
-/* line 250, ../sass/main.scss */
+/* line 176, ../sass/main.scss */
 .overlay .invitees {
   float: left;
 }
-/* line 253, ../sass/main.scss */
+/* line 179, ../sass/main.scss */
 .overlay .invitees li {
   color: white;
-  font-size: 1.5em;
+  font-size: 1.6em;
   margin-bottom: 0.5em;
 }
-/* line 259, ../sass/main.scss */
+/* line 185, ../sass/main.scss */
 .overlay .invitees .invitee-name {
   display: inline-block;
   width: 7.5em;
 }
-/* line 264, ../sass/main.scss */
+/* line 190, ../sass/main.scss */
 .overlay .invitees button {
   font-size: 0.8em;
   border: none;
   background: lightblue;
 }
-/* line 268, ../sass/main.scss */
+/* line 194, ../sass/main.scss */
 .overlay .invitees button:active {
   background: lightblue;
 }
-/* line 271, ../sass/main.scss */
+/* line 197, ../sass/main.scss */
 .overlay .invitees button:focus {
   outline: none;
 }
-/* line 277, ../sass/main.scss */
+/* line 203, ../sass/main.scss */
 .overlay [type=submit] {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -704,16 +710,16 @@ body {
   float: right;
   padding: 0.4em;
 }
-/* line 292, ../sass/main.scss */
+/* line 218, ../sass/main.scss */
 .overlay header {
   margin: 1em 0;
 }
-/* line 296, ../sass/main.scss */
+/* line 222, ../sass/main.scss */
 .overlay h1 {
   font-size: 2.2em;
   color: white;
 }
-/* line 301, ../sass/main.scss */
+/* line 227, ../sass/main.scss */
 .overlay textarea {
   border: none;
   font-size: 1.5em;
@@ -721,4 +727,15 @@ body {
   width: 100%;
   height: 9.7em;
   margin-bottom: 0.5em;
+}
+/* line 236, ../sass/main.scss */
+.overlay .success {
+  -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  border-radius: 0.3em;
+  background: white;
+  color: black;
+  padding: 2em;
+  font-size: 1.6em;
+  text-align: center;
 }
