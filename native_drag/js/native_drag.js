@@ -91,6 +91,14 @@ var Drag = {
       if (typeof e !== "undefined") {
         e.target.classList.add("over");
       }
+    },
+
+    preventBrowserRedirect: function(e) {
+      if (e.stopPropagation) {
+        e.stopPropagation();
+      }
+
+      return false;
     }
   },
 
@@ -279,14 +287,6 @@ var Drag = {
     return document.querySelector("[aria-grabbed='true'] .friend-name").innerHTML;
   },
 
-  preventBrowserRedirect: function(e) {
-    if (e.stopPropagation) {
-      e.stopPropagation();
-    }
-
-    return false;
-  },
-
   handleDragEnd: function(e) {
     [].forEach.call(this.draggable_els, function (el) {
       el.classList.remove("over");
@@ -311,7 +311,7 @@ var Drag = {
           friends_list.dataset.listSize = friends_list.querySelectorAll("li").length;
         };
 
-    this.preventBrowserRedirect(e);
+    this.utils.preventBrowserRedirect(e);
 
     if (target.childNodes.length <= 3) {
       friends_list = document.createElement("ul");
@@ -345,10 +345,16 @@ var Drag = {
   },
 
   removeInvitee: function(btn, invitee_name) {
-    var li           = btn.parentNode,
-        invitee_list = document.querySelector(".over ul"),
-        invitees     = invitee_list.querySelectorAll("li"),
-        tmp_name;
+    var li            = btn.parentNode,
+        invitee_list  = document.querySelector(".over ul"),
+        invitees      = invitee_list.querySelectorAll("li"),
+        empty_html    = "<li>You&rsquo;ve removed all event invites.</li>",
+        tmp_name,
+        disableSubmit = function() {
+          document
+            .querySelector(".modal [type=submit]")
+          . setAttribute("disabled", "disabled");
+        };
 
     // visually remove the invitee
     li.classList.add("item-remove-row");
@@ -365,8 +371,8 @@ var Drag = {
     invitee_list.dataset.listSize--;
 
     if (invitee_list.dataset.listSize <= 0) {
-      li.parentNode.innerHTML = "<li>You&rsquo;ve removed all event invites.</li>";
-      document.querySelector(".modal [type=submit]").setAttribute("disabled", "disabled");
+      li.parentNode.innerHTML = empty_html;
+      disableSubmit();
     }
 
     return false;
