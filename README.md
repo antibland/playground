@@ -26,6 +26,9 @@ var questionnaire = Object.create(Questionnaire);
 questionnaire.init();
 ```
 ###Native Drag and Drop###
+
+![alt tag](https://dl.dropboxusercontent.com/u/24799515/img_share/questionnaire.gif)
+
 You may be thinking, _why?_ Yes, there are a lot of drag and drop demos out in the wild, but few address accessibility as well as 3D CSS transforms. It's by no means perfect, though, and mobile support is ~~coming next~~ here.
 
 Using it is very similar to all the demos I'll likely add to the playground.
