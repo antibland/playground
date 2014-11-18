@@ -3,7 +3,7 @@ Playground
 
 What is it?
 -----------
-Sometimes I have ideas for short demos and concise little ideas. Wow there's a place for them to be stored and shared.
+Sometimes I have ideas for short demos and concise little ideas. Now there's a place for them to be stored and shared.
 
 Although I use 3rd party libraries at work, I don't like relying on them in my free time. All of these demos are written using native JavaScript, scss and HTML5. In addition, I try to make the examples accessible as possible.
 
@@ -11,6 +11,9 @@ What's in here?
 ---------------
 
 ###Questionnaire###
+
+![alt tag](https://dl.dropboxusercontent.com/u/24799515/img_share/questionnaire.png)
+
 It's still a work in progress, but the quentionnaire is kind of cool. It uses aria to control the start/stop of the animation, and counter-increment to show the current question number.
 
 To use it, simply include questions.js, a simple JSON array, and questionnaire.js, the file containing the object you'll need to instantiate. This code should go at the bottom of your page, just before the end of body.
