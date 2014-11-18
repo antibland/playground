@@ -1,3 +1,4 @@
+"use strict";
 var Questionnaire = {
   current_question_index: 0,
 
