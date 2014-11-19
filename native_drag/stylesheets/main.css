@@ -514,13 +514,6 @@ body {
   text-align: center;
 }
 /* line 66, ../sass/main.scss */
-#friends > li ul,
-#events > li ul {
-  position: absolute;
-  visibility: hidden;
-  pointer-events: none;
-}
-/* line 72, ../sass/main.scss */
 #friends > li li,
 #events > li li {
   position: absolute;
@@ -528,11 +521,11 @@ body {
   pointer-events: none;
 }
 
-/* line 80, ../sass/main.scss */
+/* line 74, ../sass/main.scss */
 #friends > li {
   z-index: 100;
 }
-/* line 83, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 #friends > li.clone {
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
@@ -546,7 +539,7 @@ body {
   z-index: 1;
   position: absolute;
 }
-/* line 90, ../sass/main.scss */
+/* line 84, ../sass/main.scss */
 #friends > li.clone.shown {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
@@ -555,7 +548,7 @@ body {
   transform: scale3d(0.8, 0.8, 1);
 }
 
-/* line 97, ../sass/main.scss */
+/* line 91, ../sass/main.scss */
 #events > li {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -563,13 +556,52 @@ body {
   transition: 0.3s;
   background: #eee;
 }
-/* line 101, ../sass/main.scss */
-#events > li.over {
+/* line 95, ../sass/main.scss */
+#events > li ul {
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+}
+/* line 100, ../sass/main.scss */
+#events > li ul:after {
+  content: attr(data-list-size);
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-transform: translateY(-50%) scale3d(0, 0, 1);
+  -ms-transform: translateY(-50%) scale3d(0, 0, 1);
+  -webkit-transform: translateY(-50%) scale3d(0, 0, 1);
+  transform: translateY(-50%) scale3d(0, 0, 1);
+  margin: 0 auto;
+  display: block;
+  font-size: 1.1em;
+  background: lightblue;
+  color: black;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+}
+/* line 120, ../sass/main.scss */
+#events > li.over, #events > li:hover {
   border-color: black;
   background: #ccc;
 }
+/* line 126, ../sass/main.scss */
+#events > li.over ul:after, #events > li:hover ul:after {
+  -moz-transform: translateY(25%) scale3d(1, 1, 1);
+  -ms-transform: translateY(25%) scale3d(1, 1, 1);
+  -webkit-transform: translateY(25%) scale3d(1, 1, 1);
+  transform: translateY(25%) scale3d(1, 1, 1);
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
 
-/* line 107, ../sass/main.scss */
+/* line 136, ../sass/main.scss */
 .enable-transition {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -577,7 +609,7 @@ body {
   transition: 0.5s;
 }
 
-/* line 111, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 .item-dropped {
   -webkit-animation: scale 0.5s;
   -moz-animation: scale 0.5s;
@@ -585,7 +617,7 @@ body {
   animation: scale 0.5s;
 }
 
-/* line 115, ../sass/main.scss */
+/* line 144, ../sass/main.scss */
 .item-duplicate {
   -webkit-animation: shake 0.35s;
   -moz-animation: shake 0.35s;
@@ -593,7 +625,7 @@ body {
   animation: shake 0.35s;
 }
 
-/* line 119, ../sass/main.scss */
+/* line 148, ../sass/main.scss */
 .item-remove-row {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -608,7 +640,7 @@ body {
   pointer-events: none;
 }
 
-/* line 129, ../sass/main.scss */
+/* line 158, ../sass/main.scss */
 .overlay {
   position: fixed;
   top: 0;
@@ -619,15 +651,15 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   /*dim the background*/
 }
-/* line 138, ../sass/main.scss */
+/* line 167, ../sass/main.scss */
 .overlay[aria-hidden="false"] {
   display: block;
 }
-/* line 142, ../sass/main.scss */
+/* line 171, ../sass/main.scss */
 .overlay[aria-hidden="true"] {
   display: none;
 }
-/* line 146, ../sass/main.scss */
+/* line 175, ../sass/main.scss */
 .overlay [role=dialog] {
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -646,7 +678,7 @@ body {
   outline: none;
 }
 @media screen and (max-width: 600px) {
-  /* line 146, ../sass/main.scss */
+  /* line 175, ../sass/main.scss */
   .overlay [role=dialog] {
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
@@ -656,12 +688,12 @@ body {
     top: 2em;
   }
 }
-/* line 165, ../sass/main.scss */
+/* line 194, ../sass/main.scss */
 .overlay .invitee-name,
 .overlay h1 {
   text-shadow: 0 1px 2px #333;
 }
-/* line 170, ../sass/main.scss */
+/* line 199, ../sass/main.scss */
 .overlay .invitees button,
 .overlay textarea,
 .overlay [type="submit"] {
@@ -669,36 +701,36 @@ body {
   -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
 }
-/* line 176, ../sass/main.scss */
+/* line 205, ../sass/main.scss */
 .overlay .invitees {
   float: left;
 }
-/* line 179, ../sass/main.scss */
+/* line 208, ../sass/main.scss */
 .overlay .invitees li {
   color: white;
   font-size: 1.6em;
   margin-bottom: 0.5em;
 }
-/* line 185, ../sass/main.scss */
+/* line 214, ../sass/main.scss */
 .overlay .invitees .invitee-name {
   display: inline-block;
   width: 7.5em;
 }
-/* line 190, ../sass/main.scss */
+/* line 219, ../sass/main.scss */
 .overlay .invitees button {
   font-size: 0.8em;
   border: none;
   background: lightblue;
 }
-/* line 194, ../sass/main.scss */
+/* line 223, ../sass/main.scss */
 .overlay .invitees button:active {
   background: lightblue;
 }
-/* line 197, ../sass/main.scss */
+/* line 226, ../sass/main.scss */
 .overlay .invitees button:focus {
   outline: none;
 }
-/* line 203, ../sass/main.scss */
+/* line 232, ../sass/main.scss */
 .overlay [type=submit] {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -710,16 +742,16 @@ body {
   float: right;
   padding: 0.4em;
 }
-/* line 218, ../sass/main.scss */
+/* line 247, ../sass/main.scss */
 .overlay header {
   margin: 1em 0;
 }
-/* line 222, ../sass/main.scss */
+/* line 251, ../sass/main.scss */
 .overlay h1 {
   font-size: 2.2em;
   color: white;
 }
-/* line 227, ../sass/main.scss */
+/* line 256, ../sass/main.scss */
 .overlay textarea {
   border: none;
   font-size: 1.5em;
@@ -728,7 +760,7 @@ body {
   height: 9.7em;
   margin-bottom: 0.5em;
 }
-/* line 236, ../sass/main.scss */
+/* line 265, ../sass/main.scss */
 .overlay .success {
   -moz-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;

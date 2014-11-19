@@ -63,12 +63,6 @@ body {
       text-align: center;
     }
 
-    ul {
-      position: absolute;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
     li {
       position: absolute;
       visibility: hidden;
@@ -98,9 +92,44 @@ body {
   @include transition(0.3s);
   background: $light_gray;
 
-  &.over {
+  ul {
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+
+    &:after {
+      content: attr(data-list-size);
+      @include transition(0.3s);
+      @include opacity(0);
+      @include transform(
+        translateY(-50%) scale3d(0, 0, 1)
+      );
+      margin: 0 auto;
+      display: block;
+      font-size: 1.1em;
+      background: lightblue;
+      color: black;
+      border-radius: 50%;
+      width: 1.5em;
+      height: 1.5em;
+      line-height: 1.5em;
+      text-align: center;
+    }
+  }
+
+  &.over,
+  &:hover {
     border-color: black;
     background: $touch_hover_background_color;
+
+    ul {
+      &:after {
+        @include transform(
+          translateY(25%) scale3d(1, 1, 1)
+        );
+        @include opacity(1);
+      }
+    }
   }
 }
 
