@@ -49,7 +49,11 @@
   <script src="js/native_drag.js"></script>
   <script>
     var drag = Object.create(Drag);
-    drag.init();
+    drag.init({
+      target_width: 89,
+      draggable_selector: "[aria-dropeffect='copy'] [draggable='true']",
+      target_selector: ".event"
+    });
   </script>
 </body>
 </html>

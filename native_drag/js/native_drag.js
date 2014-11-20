@@ -1,11 +1,15 @@
 "use strict";
 var Drag = {
-  drag_src_el      : null,
-  draggable_els    : null,
-  target_els       : null,
-  positions        : [],
-  circle           : { width:  document.querySelector(".event").offsetWidth },
-  colliding        : false,
+  drag_src_el        : null,
+  draggable_els      : null,
+  target_els         : null,
+  draggable_selector : null,
+  target_selector    : null,
+  positions          : [],
+  circle             : { width:  null },
+  colliding          : false,
+  effectAllowed      : null,
+  dropEffect         : null,
 
   modal: {
     create: function(obj) {
@@ -74,11 +78,11 @@ var Drag = {
     },
 
     getDraggableElements: function() {
-      return document.querySelectorAll("[aria-dropeffect='copy'] [draggable='true']");
+      return document.querySelectorAll(Drag.draggable_selector);
     },
 
     getTargetElements: function() {
-      return document.querySelectorAll(".event");
+      return document.querySelectorAll(Drag.target_selector);
     },
 
     removeTargetStyles: function(class_name, e) {
@@ -102,15 +106,17 @@ var Drag = {
     }
   },
 
-  init: function() {
-    this.initVars();
-    this.bindEvents();
-    this.touchSupport();
-  },
+  init: function(config) {
+    Drag.circle.width       = config.target_width;
+    Drag.draggable_selector = config.draggable_selector;
+    Drag.target_selector    = config.target_selector;
+    Drag.draggable_els      = this.utils.getDraggableElements();
+    Drag.target_els         = this.utils.getTargetElements();
+    Drag.effectAllowed      = config.effectAllowed || "copy";
+    Drag.dropEffect         = config.dropEffect || "copy";
 
-  initVars: function() {
-    this.draggable_els = this.utils.getDraggableElements();
-    this.target_els = this.utils.getTargetElements();
+    Drag.bindEvents();
+    Drag.touchSupport();
   },
 
   bindEvents: function() {
@@ -424,7 +430,7 @@ var Drag = {
 
     this.drag_src_el = e.target;
 
-    e.dataTransfer.effectAllowed = 'copy';
+    e.dataTransfer.effectAllowed = Drag.effectAllowed;
     e.dataTransfer.setData('text/html', target.innerHTML);
   },
 
@@ -433,7 +439,7 @@ var Drag = {
       e.preventDefault();
     }
 
-    e.dataTransfer.dropEffect = "copy";
+    e.dataTransfer.dropEffect = Drag.dropEffect;
     return false;
   },
 
