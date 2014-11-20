@@ -1,6 +1,7 @@
 @include keyframes(scale) {
   0% { @include scale3d(1, 1, 1) }
-  50% { @include scale3d(1.1, 1.1, 1) }
+  50% { @include scale3d(0.8, 0.8, 1) }
+  70% { @include scale3d(1.1, 1.1, 1) }
   100% { @include scale3d(1, 1, 1) }
 }
 
@@ -21,7 +22,7 @@
 // the following classes are referenced in the demo
 
 .item-dropped {
-  @include animation('scale 0.5s');
+  @include animation('scale 0.35s');
 }
 
 .item-duplicate {
@@ -30,6 +31,10 @@
 
 .enable-transition {
   @include transition(0.5s);
+}
+
+.item-load {
+  @include animation('scale 1s');
 }
 
 .item-remove-row {

@@ -44,6 +44,7 @@ body {
 #friends,
 #events {
   > li {
+    will-change: transform, opacity;
     @include border-radius(6em);
     width: 7em;
     height: 7em;

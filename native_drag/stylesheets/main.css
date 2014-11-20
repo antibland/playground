@@ -100,6 +100,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: scale3d(1, 1, 1);
   }
   50% {
+    -moz-transform: scale3d(0.8, 0.8, 1);
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  70% {
     -moz-transform: scale3d(1.1, 1.1, 1);
     -webkit-transform: scale3d(1.1, 1.1, 1);
     transform: scale3d(1.1, 1.1, 1);
@@ -117,6 +122,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: scale3d(1, 1, 1);
   }
   50% {
+    -moz-transform: scale3d(0.8, 0.8, 1);
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  70% {
     -moz-transform: scale3d(1.1, 1.1, 1);
     -webkit-transform: scale3d(1.1, 1.1, 1);
     transform: scale3d(1.1, 1.1, 1);
@@ -134,6 +144,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: scale3d(1, 1, 1);
   }
   50% {
+    -moz-transform: scale3d(0.8, 0.8, 1);
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  70% {
     -moz-transform: scale3d(1.1, 1.1, 1);
     -webkit-transform: scale3d(1.1, 1.1, 1);
     transform: scale3d(1.1, 1.1, 1);
@@ -151,6 +166,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: scale3d(1, 1, 1);
   }
   50% {
+    -moz-transform: scale3d(0.8, 0.8, 1);
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  70% {
     -moz-transform: scale3d(1.1, 1.1, 1);
     -webkit-transform: scale3d(1.1, 1.1, 1);
     transform: scale3d(1.1, 1.1, 1);
@@ -433,15 +453,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: translate(1px, 0px) rotate(-1deg);
   }
 }
-/* line 23, ../sass/_animations.scss */
+/* line 24, ../sass/_animations.scss */
 .item-dropped {
-  -webkit-animation: scale 0.5s;
-  -moz-animation: scale 0.5s;
-  -o-animation: scale 0.5s;
-  animation: scale 0.5s;
+  -webkit-animation: scale 0.35s;
+  -moz-animation: scale 0.35s;
+  -o-animation: scale 0.35s;
+  animation: scale 0.35s;
 }
 
-/* line 27, ../sass/_animations.scss */
+/* line 28, ../sass/_animations.scss */
 .item-duplicate {
   -webkit-animation: shake 0.35s;
   -moz-animation: shake 0.35s;
@@ -449,7 +469,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   animation: shake 0.35s;
 }
 
-/* line 31, ../sass/_animations.scss */
+/* line 32, ../sass/_animations.scss */
 .enable-transition {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -457,7 +477,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   transition: 0.5s;
 }
 
-/* line 35, ../sass/_animations.scss */
+/* line 36, ../sass/_animations.scss */
+.item-load {
+  -webkit-animation: scale 1s;
+  -moz-animation: scale 1s;
+  -o-animation: scale 1s;
+  animation: scale 1s;
+}
+
+/* line 40, ../sass/_animations.scss */
 .item-remove-row {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -661,6 +689,7 @@ body {
 /* line 46, ../sass/main.scss */
 #friends > li,
 #events > li {
+  will-change: transform, opacity;
   -moz-border-radius: 6em;
   -webkit-border-radius: 6em;
   border-radius: 6em;
@@ -674,7 +703,7 @@ body {
   margin: 2em;
   font-size: 1.3em;
 }
-/* line 58, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 #friends > li .event-name,
 #friends > li .friend-name,
 #events > li .event-name,
@@ -689,7 +718,7 @@ body {
   height: 100%;
   text-align: center;
 }
-/* line 68, ../sass/main.scss */
+/* line 69, ../sass/main.scss */
 #friends > li li,
 #events > li li {
   position: absolute;
@@ -697,11 +726,11 @@ body {
   pointer-events: none;
 }
 
-/* line 76, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 #friends > li {
   z-index: 100;
 }
-/* line 79, ../sass/main.scss */
+/* line 80, ../sass/main.scss */
 #friends > li.clone {
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
@@ -715,7 +744,7 @@ body {
   z-index: 1;
   position: absolute;
 }
-/* line 86, ../sass/main.scss */
+/* line 87, ../sass/main.scss */
 #friends > li.clone.shown {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
@@ -724,7 +753,7 @@ body {
   transform: scale3d(0.8, 0.8, 1);
 }
 
-/* line 93, ../sass/main.scss */
+/* line 94, ../sass/main.scss */
 #events > li {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -732,13 +761,13 @@ body {
   transition: 0.3s;
   background: #eee;
 }
-/* line 97, ../sass/main.scss */
+/* line 98, ../sass/main.scss */
 #events > li ul {
   width: 100%;
   position: absolute;
   pointer-events: none;
 }
-/* line 102, ../sass/main.scss */
+/* line 103, ../sass/main.scss */
 #events > li ul:after {
   content: attr(data-list-size);
   -moz-transition: 0.3s;
@@ -762,12 +791,12 @@ body {
   line-height: 1.5em;
   text-align: center;
 }
-/* line 122, ../sass/main.scss */
+/* line 123, ../sass/main.scss */
 #events > li.over, #events > li:hover {
   border-color: black;
   background: #ccc;
 }
-/* line 128, ../sass/main.scss */
+/* line 129, ../sass/main.scss */
 #events > li.over ul:after, #events > li:hover ul:after {
   -moz-transform: translateY(25%) scale3d(1, 1, 1);
   -ms-transform: translateY(25%) scale3d(1, 1, 1);

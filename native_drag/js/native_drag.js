@@ -103,6 +103,23 @@ var Drag = {
       }
 
       return false;
+    },
+
+    whichAnimationEvent: function() {
+      var t,
+          el = document.createElement('fakeelement'),
+          animations = {
+            'animation':'animationend',
+            'OAnimation':'oAnimationEnd',
+            'MozTransition':'animationend',
+            'WebkitTransition':'webkitAnimationEnd'
+          };
+
+      for (t in animations){
+        if(el.style[t] !== undefined){
+          return animations[t];
+        }
+      }
     }
   },
 
@@ -117,6 +134,29 @@ var Drag = {
 
     Drag.bindEvents();
     Drag.touchSupport();
+    Drag.enterStage();
+  },
+
+  enterStage: function() {
+    var a             = Array.prototype.slice.call(Drag.draggable_els),
+        b             = Array.prototype.slice.call(Drag.target_els),
+        all_els       = a.concat(b),
+        animation_end = Drag.utils.whichAnimationEvent(),
+        prefix        = (/mozilla/.test(navigator.userAgent.toLowerCase()) &&
+                        !/webkit/.test(navigator.userAgent.toLowerCase())) ? '-moz-' :
+                        (/webkit/.test(navigator.userAgent.toLowerCase())) ? '-webkit-' :
+                        (/msie/.test(navigator.userAgent.toLowerCase()))   ? '-ms-' :
+                        (/opera/.test(navigator.userAgent.toLowerCase()))  ? '-o-' : '';
+
+    [].forEach.call(all_els, function(el, index) {
+      if (el.className !== "clone") {
+        el.classList.add("item-load");
+      }
+
+      animation_end && el.addEventListener(animation_end, function() {
+        el.classList.remove("item-load");
+      });
+    });
   },
 
   bindEvents: function() {
