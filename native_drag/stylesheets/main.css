@@ -89,8 +89,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 26px;
   height: 26px;
   font-size: 1.8em;
-  background: black;
-  color: white;
+  background: #eee;
+  color: black;
 }
 
 @-webkit-keyframes scale {
@@ -433,32 +433,204 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: translate(1px, 0px) rotate(-1deg);
   }
 }
-/* line 7, ../sass/main.scss */
+/* line 23, ../sass/_animations.scss */
+.item-dropped {
+  -webkit-animation: scale 0.5s;
+  -moz-animation: scale 0.5s;
+  -o-animation: scale 0.5s;
+  animation: scale 0.5s;
+}
+
+/* line 27, ../sass/_animations.scss */
+.item-duplicate {
+  -webkit-animation: shake 0.35s;
+  -moz-animation: shake 0.35s;
+  -o-animation: shake 0.35s;
+  animation: shake 0.35s;
+}
+
+/* line 31, ../sass/_animations.scss */
+.enable-transition {
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+/* line 35, ../sass/_animations.scss */
+.item-remove-row {
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-transform: translate(-2px, -10px) rotate(-5deg);
+  -ms-transform: translate(-2px, -10px) rotate(-5deg);
+  -webkit-transform: translate(-2px, -10px) rotate(-5deg);
+  transform: translate(-2px, -10px) rotate(-5deg);
+  pointer-events: none;
+}
+
+/* line 1, ../sass/_overlay.scss */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.5);
+  /*dim the background*/
+}
+/* line 10, ../sass/_overlay.scss */
+.overlay[aria-hidden="false"] {
+  display: block;
+}
+/* line 14, ../sass/_overlay.scss */
+.overlay[aria-hidden="true"] {
+  display: none;
+}
+/* line 18, ../sass/_overlay.scss */
+.overlay [role=dialog] {
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -moz-border-radius: 0.6em;
+  -webkit-border-radius: 0.6em;
+  border-radius: 0.6em;
+  padding: 0.75em 1em 1em;
+  margin: 0 auto;
+  display: table;
+  position: relative;
+  top: 50%;
+  width: 50em;
+  border: 1px solid #a2a2a2;
+  outline: none;
+  background: #555555;
+}
+@media screen and (max-width: 600px) {
+  /* line 18, ../sass/_overlay.scss */
+  .overlay [role=dialog] {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    width: 92%;
+    top: 2em;
+  }
+}
+/* line 38, ../sass/_overlay.scss */
+.overlay .invitee-name,
+.overlay h1 {
+  text-shadow: 0 1px 2px #333;
+}
+/* line 43, ../sass/_overlay.scss */
+.overlay .invitees button,
+.overlay textarea,
+.overlay [type="submit"] {
+  -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  border-radius: 0.3em;
+}
+/* line 49, ../sass/_overlay.scss */
+.overlay .invitees {
+  float: left;
+}
+/* line 52, ../sass/_overlay.scss */
+.overlay .invitees li {
+  color: white;
+  font-size: 1.6em;
+  margin-bottom: 0.5em;
+}
+/* line 58, ../sass/_overlay.scss */
+.overlay .invitees .invitee-name {
+  display: inline-block;
+  width: 7.5em;
+}
+/* line 63, ../sass/_overlay.scss */
+.overlay .invitees button {
+  font-size: 0.8em;
+  border: none;
+  background: lightblue;
+}
+/* line 67, ../sass/_overlay.scss */
+.overlay .invitees button:active {
+  background: lightblue;
+}
+/* line 70, ../sass/_overlay.scss */
+.overlay .invitees button:focus {
+  outline: none;
+}
+/* line 76, ../sass/_overlay.scss */
+.overlay [type=submit] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-shadow: 0 1px 2px #eee;
+  border: none;
+  background: lightblue;
+  color: black;
+  font-size: 1.8em;
+  float: right;
+  padding: 0.4em;
+}
+/* line 91, ../sass/_overlay.scss */
+.overlay header {
+  margin: 1em 0;
+}
+/* line 95, ../sass/_overlay.scss */
+.overlay h1 {
+  font-size: 2.2em;
+  color: white;
+}
+/* line 100, ../sass/_overlay.scss */
+.overlay textarea {
+  border: none;
+  font-size: 1.5em;
+  padding: 1em;
+  width: 100%;
+  height: 9.7em;
+  margin-bottom: 0.5em;
+}
+/* line 109, ../sass/_overlay.scss */
+.overlay .success {
+  -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  border-radius: 0.3em;
+  background: white;
+  color: black;
+  padding: 2em;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+/* line 8, ../sass/main.scss */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 10, ../sass/main.scss */
+/* line 11, ../sass/main.scss */
 *:after, *:before {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 16, ../sass/main.scss */
+/* line 17, ../sass/main.scss */
 main {
   text-align: center;
 }
 
-/* line 20, ../sass/main.scss */
+/* line 21, ../sass/main.scss */
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   font-size: 62.5%;
 }
 
-/* line 26, ../sass/main.scss */
+/* line 27, ../sass/main.scss */
 [draggable="true"] {
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
@@ -468,12 +640,11 @@ body {
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  /* Required to make elements draggable in old WebKit */
   -khtml-user-drag: element;
   -webkit-user-drag: element;
   cursor: move;
 }
-/* line 36, ../sass/main.scss */
+/* line 34, ../sass/main.scss */
 [draggable="true"][aria-grabbed="true"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
@@ -481,13 +652,13 @@ body {
   -webkit-transform: scale3d(0.8, 0.8, 1);
   transform: scale3d(0.8, 0.8, 1);
 }
-/* line 41, ../sass/main.scss */
+/* line 39, ../sass/main.scss */
 [draggable="true"][aria-grabbed="false"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 48, ../sass/main.scss */
+/* line 46, ../sass/main.scss */
 #friends > li,
 #events > li {
   -moz-border-radius: 6em;
@@ -503,7 +674,7 @@ body {
   margin: 2em;
   font-size: 1.3em;
 }
-/* line 60, ../sass/main.scss */
+/* line 58, ../sass/main.scss */
 #friends > li .event-name,
 #friends > li .friend-name,
 #events > li .event-name,
@@ -518,7 +689,7 @@ body {
   height: 100%;
   text-align: center;
 }
-/* line 70, ../sass/main.scss */
+/* line 68, ../sass/main.scss */
 #friends > li li,
 #events > li li {
   position: absolute;
@@ -526,11 +697,11 @@ body {
   pointer-events: none;
 }
 
-/* line 78, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 #friends > li {
   z-index: 100;
 }
-/* line 81, ../sass/main.scss */
+/* line 79, ../sass/main.scss */
 #friends > li.clone {
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
@@ -544,7 +715,7 @@ body {
   z-index: 1;
   position: absolute;
 }
-/* line 88, ../sass/main.scss */
+/* line 86, ../sass/main.scss */
 #friends > li.clone.shown {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
@@ -553,7 +724,7 @@ body {
   transform: scale3d(0.8, 0.8, 1);
 }
 
-/* line 95, ../sass/main.scss */
+/* line 93, ../sass/main.scss */
 #events > li {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -561,13 +732,13 @@ body {
   transition: 0.3s;
   background: #eee;
 }
-/* line 99, ../sass/main.scss */
+/* line 97, ../sass/main.scss */
 #events > li ul {
   width: 100%;
   position: absolute;
   pointer-events: none;
 }
-/* line 104, ../sass/main.scss */
+/* line 102, ../sass/main.scss */
 #events > li ul:after {
   content: attr(data-list-size);
   -moz-transition: 0.3s;
@@ -591,12 +762,12 @@ body {
   line-height: 1.5em;
   text-align: center;
 }
-/* line 124, ../sass/main.scss */
+/* line 122, ../sass/main.scss */
 #events > li.over, #events > li:hover {
   border-color: black;
   background: #ccc;
 }
-/* line 130, ../sass/main.scss */
+/* line 128, ../sass/main.scss */
 #events > li.over ul:after, #events > li:hover ul:after {
   -moz-transform: translateY(25%) scale3d(1, 1, 1);
   -ms-transform: translateY(25%) scale3d(1, 1, 1);
@@ -604,175 +775,4 @@ body {
   transform: translateY(25%) scale3d(1, 1, 1);
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
-}
-
-/* line 140, ../sass/main.scss */
-.enable-transition {
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-/* line 144, ../sass/main.scss */
-.item-dropped {
-  -webkit-animation: scale 0.5s;
-  -moz-animation: scale 0.5s;
-  -o-animation: scale 0.5s;
-  animation: scale 0.5s;
-}
-
-/* line 148, ../sass/main.scss */
-.item-duplicate {
-  -webkit-animation: shake 0.35s;
-  -moz-animation: shake 0.35s;
-  -o-animation: shake 0.35s;
-  animation: shake 0.35s;
-}
-
-/* line 152, ../sass/main.scss */
-.item-remove-row {
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -moz-transform: translate(-2px, -10px) rotate(-5deg);
-  -ms-transform: translate(-2px, -10px) rotate(-5deg);
-  -webkit-transform: translate(-2px, -10px) rotate(-5deg);
-  transform: translate(-2px, -10px) rotate(-5deg);
-  pointer-events: none;
-}
-
-/* line 162, ../sass/main.scss */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 200;
-  background-color: rgba(0, 0, 0, 0.5);
-  /*dim the background*/
-}
-/* line 171, ../sass/main.scss */
-.overlay[aria-hidden="false"] {
-  display: block;
-}
-/* line 175, ../sass/main.scss */
-.overlay[aria-hidden="true"] {
-  display: none;
-}
-/* line 179, ../sass/main.scss */
-.overlay [role=dialog] {
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -moz-border-radius: 0.6em;
-  -webkit-border-radius: 0.6em;
-  border-radius: 0.6em;
-  padding: 0.75em 1em;
-  margin: 0 auto;
-  display: table;
-  position: relative;
-  top: 50%;
-  width: 50em;
-  border: 1px solid #eee;
-  outline: none;
-}
-@media screen and (max-width: 600px) {
-  /* line 179, ../sass/main.scss */
-  .overlay [role=dialog] {
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    width: 92%;
-    top: 2em;
-  }
-}
-/* line 198, ../sass/main.scss */
-.overlay .invitee-name,
-.overlay h1 {
-  text-shadow: 0 1px 2px #333;
-}
-/* line 203, ../sass/main.scss */
-.overlay .invitees button,
-.overlay textarea,
-.overlay [type="submit"] {
-  -moz-border-radius: 0.3em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
-}
-/* line 209, ../sass/main.scss */
-.overlay .invitees {
-  float: left;
-}
-/* line 212, ../sass/main.scss */
-.overlay .invitees li {
-  color: white;
-  font-size: 1.6em;
-  margin-bottom: 0.5em;
-}
-/* line 218, ../sass/main.scss */
-.overlay .invitees .invitee-name {
-  display: inline-block;
-  width: 7.5em;
-}
-/* line 223, ../sass/main.scss */
-.overlay .invitees button {
-  font-size: 0.8em;
-  border: none;
-  background: lightblue;
-}
-/* line 227, ../sass/main.scss */
-.overlay .invitees button:active {
-  background: lightblue;
-}
-/* line 230, ../sass/main.scss */
-.overlay .invitees button:focus {
-  outline: none;
-}
-/* line 236, ../sass/main.scss */
-.overlay [type=submit] {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  text-shadow: 0 1px 2px #eee;
-  border: none;
-  background: lightblue;
-  color: black;
-  font-size: 1.8em;
-  float: right;
-  padding: 0.4em;
-}
-/* line 251, ../sass/main.scss */
-.overlay header {
-  margin: 1em 0;
-}
-/* line 255, ../sass/main.scss */
-.overlay h1 {
-  font-size: 2.2em;
-  color: white;
-}
-/* line 260, ../sass/main.scss */
-.overlay textarea {
-  border: none;
-  font-size: 1.5em;
-  padding: 1em;
-  width: 100%;
-  height: 9.7em;
-  margin-bottom: 0.5em;
-}
-/* line 269, ../sass/main.scss */
-.overlay .success {
-  -moz-border-radius: 0.3em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
-  background: white;
-  color: black;
-  padding: 2em;
-  font-size: 1.6em;
-  text-align: center;
 }
