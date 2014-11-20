@@ -36,7 +36,16 @@ Using it is very similar to all the demos I'll likely add to the playground.
 <script src="js/drag.js"></script>
 
 var drag = Object.create(Drag);
-drag.init();
+
+/* optional init arguments */
+// dropEffect    (defaults to "copy")
+// effectAllowed (defaults to "copy")
+
+drag.init({
+  target_width: 89,
+  draggable_selector: "[aria-dropeffect='copy'] [draggable='true']",
+  target_selector: ".event"
+});
 ```
 
 License
