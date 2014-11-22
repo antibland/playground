@@ -14,8 +14,7 @@ var Questionnaire = {
       document
         .querySelector("ol li:first-child")
         .setAttribute("aria-hidden", "false");
-      self.setActiveQuestionIndex(0);
-    },(this), 300);
+    }, 300);
   },
 
   initVars: function() {
@@ -117,8 +116,9 @@ var Questionnaire = {
     }
 
     this.questions_container.setAttribute("aria-busy", "false");
+
     this.questions_container
       .querySelector(".inner")
-      .appendChild(this.questions_list);
+      .insertBefore(this.questions_list, this.submit_button);
   }
 };
