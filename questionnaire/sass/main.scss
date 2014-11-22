@@ -41,8 +41,6 @@ body {
   top: 50%;
 }
 
-
-
 %button {
   @include transition(0.3s);
   @include border-radius(0.3em);
