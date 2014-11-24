@@ -120,8 +120,7 @@ body {
     }
   }
 
-  &.over,
-  &:hover {
+  &.over {
     border-color: black;
     background: $touch_hover_background_color;
 

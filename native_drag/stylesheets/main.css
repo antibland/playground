@@ -796,12 +796,12 @@ body {
   text-align: center;
 }
 /* line 123, ../sass/main.scss */
-#events > li.over, #events > li:hover {
+#events > li.over {
   border-color: black;
   background: #ccc;
 }
-/* line 129, ../sass/main.scss */
-#events > li.over ul:after, #events > li:hover ul:after {
+/* line 128, ../sass/main.scss */
+#events > li.over ul:after {
   -moz-transform: translateY(25%) scale3d(1, 1, 1);
   -ms-transform: translateY(25%) scale3d(1, 1, 1);
   -webkit-transform: translateY(25%) scale3d(1, 1, 1);
