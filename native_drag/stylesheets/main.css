@@ -604,19 +604,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 /* line 77, ../sass/_overlay.scss */
 .overlay .invitees button {
+  cursor: pointer;
   font-size: 0.8em;
   border: none;
   background: lightblue;
 }
-/* line 81, ../sass/_overlay.scss */
+/* line 82, ../sass/_overlay.scss */
 .overlay .invitees button:active {
   background: lightblue;
 }
-/* line 84, ../sass/_overlay.scss */
+/* line 85, ../sass/_overlay.scss */
 .overlay .invitees button:focus {
   outline: none;
 }
-/* line 90, ../sass/_overlay.scss */
+/* line 91, ../sass/_overlay.scss */
 .overlay [type=submit] {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -628,16 +629,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   float: right;
   padding: 0.4em;
 }
-/* line 105, ../sass/_overlay.scss */
+/* line 106, ../sass/_overlay.scss */
 .overlay header {
   margin: 1em 0;
 }
-/* line 109, ../sass/_overlay.scss */
+/* line 110, ../sass/_overlay.scss */
 .overlay h1 {
   font-size: 2.2em;
   color: white;
 }
-/* line 114, ../sass/_overlay.scss */
+/* line 115, ../sass/_overlay.scss */
 .overlay textarea {
   border: none;
   font-size: 1.5em;
@@ -646,7 +647,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 9.7em;
   margin-bottom: 0.5em;
 }
-/* line 123, ../sass/_overlay.scss */
+/* line 124, ../sass/_overlay.scss */
 .overlay .success {
   -moz-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;

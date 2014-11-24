@@ -1,15 +1,8 @@
 "use strict";
 var Drag = {
-  drag_src_el        : null,
-  draggable_els      : null,
-  target_els         : null,
-  draggable_selector : null,
-  target_selector    : null,
-  positions          : [],
-  circle             : { width:  null },
-  colliding          : false,
-  effectAllowed      : null,
-  dropEffect         : null,
+  positions : [],
+  circle    : { width:  null },
+  colliding : false,
 
   modal: {
     create: function(obj) {
