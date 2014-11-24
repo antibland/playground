@@ -16,6 +16,7 @@
   }
 
   [role=dialog] {
+    @include transition(0.3s);
     @include transform(translateY(-50%));
     @include border-radius(0.6em);
     padding: 0.75em 1em 1em;

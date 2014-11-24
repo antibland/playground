@@ -20,7 +20,7 @@ var Drag = {
           friends     = list.querySelectorAll("li"),
           close_btn;
 
-      overlay.innerHTML = "<div" +
+      overlay.innerHTML = "<div " +
                             "aria-labelledby='event-title-header' " +
                             "role='dialog' " +
                             "class='modal' " +

@@ -521,6 +521,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 /* line 18, ../sass/_overlay.scss */
 .overlay [role=dialog] {
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -549,12 +553,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     top: 2em;
   }
 }
-/* line 38, ../sass/_overlay.scss */
+/* line 39, ../sass/_overlay.scss */
 .overlay .invitee-name,
 .overlay h1 {
   text-shadow: 0 1px 2px #333;
 }
-/* line 43, ../sass/_overlay.scss */
+/* line 44, ../sass/_overlay.scss */
 .overlay .invitees button,
 .overlay textarea,
 .overlay [type="submit"] {
@@ -562,36 +566,36 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
 }
-/* line 49, ../sass/_overlay.scss */
+/* line 50, ../sass/_overlay.scss */
 .overlay .invitees {
   float: left;
 }
-/* line 52, ../sass/_overlay.scss */
+/* line 53, ../sass/_overlay.scss */
 .overlay .invitees li {
   color: white;
   font-size: 1.6em;
   margin-bottom: 0.5em;
 }
-/* line 58, ../sass/_overlay.scss */
+/* line 59, ../sass/_overlay.scss */
 .overlay .invitees .invitee-name {
   display: inline-block;
   width: 7.5em;
 }
-/* line 63, ../sass/_overlay.scss */
+/* line 64, ../sass/_overlay.scss */
 .overlay .invitees button {
   font-size: 0.8em;
   border: none;
   background: lightblue;
 }
-/* line 67, ../sass/_overlay.scss */
+/* line 68, ../sass/_overlay.scss */
 .overlay .invitees button:active {
   background: lightblue;
 }
-/* line 70, ../sass/_overlay.scss */
+/* line 71, ../sass/_overlay.scss */
 .overlay .invitees button:focus {
   outline: none;
 }
-/* line 76, ../sass/_overlay.scss */
+/* line 77, ../sass/_overlay.scss */
 .overlay [type=submit] {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -603,16 +607,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   float: right;
   padding: 0.4em;
 }
-/* line 91, ../sass/_overlay.scss */
+/* line 92, ../sass/_overlay.scss */
 .overlay header {
   margin: 1em 0;
 }
-/* line 95, ../sass/_overlay.scss */
+/* line 96, ../sass/_overlay.scss */
 .overlay h1 {
   font-size: 2.2em;
   color: white;
 }
-/* line 100, ../sass/_overlay.scss */
+/* line 101, ../sass/_overlay.scss */
 .overlay textarea {
   border: none;
   font-size: 1.5em;
@@ -621,7 +625,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 9.7em;
   margin-bottom: 0.5em;
 }
-/* line 109, ../sass/_overlay.scss */
+/* line 110, ../sass/_overlay.scss */
 .overlay .success {
   -moz-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;
