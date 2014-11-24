@@ -38,11 +38,12 @@
 }
 
 .item-remove-row {
-  @include transition(0.5s);
   @include opacity(0);
   @include transform(
     translate(-2px, -10px)
     rotate(-5deg)
   );
-  pointer-events: none;
+  max-height: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: hidden;
 }

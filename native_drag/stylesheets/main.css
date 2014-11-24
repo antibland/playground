@@ -487,21 +487,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 40, ../sass/_animations.scss */
 .item-remove-row {
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   -moz-transform: translate(-2px, -10px) rotate(-5deg);
   -ms-transform: translate(-2px, -10px) rotate(-5deg);
   -webkit-transform: translate(-2px, -10px) rotate(-5deg);
   transform: translate(-2px, -10px) rotate(-5deg);
-  pointer-events: none;
+  max-height: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: hidden;
 }
 
 /* line 1, ../sass/_overlay.scss */
 .overlay {
+  -moz-transition: 0.1s;
+  -o-transition: 0.1s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
   position: fixed;
   top: 0;
   left: 0;
@@ -511,24 +513,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-color: rgba(0, 0, 0, 0.5);
   /*dim the background*/
 }
-/* line 10, ../sass/_overlay.scss */
+/* line 11, ../sass/_overlay.scss */
 .overlay[aria-hidden="false"] {
-  display: block;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  pointer-events: auto;
 }
-/* line 14, ../sass/_overlay.scss */
+/* line 16, ../sass/_overlay.scss */
 .overlay[aria-hidden="true"] {
-  display: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
 }
-/* line 18, ../sass/_overlay.scss */
+/* line 21, ../sass/_overlay.scss */
 .overlay [role=dialog] {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
   -moz-border-radius: 0.6em;
   -webkit-border-radius: 0.6em;
   border-radius: 0.6em;
@@ -542,9 +544,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   outline: none;
   background: #555555;
 }
+/* line 34, ../sass/_overlay.scss */
+.overlay [role=dialog][aria-hidden="true"] {
+  -moz-transform: translateY(-100em);
+  -ms-transform: translateY(-100em);
+  -webkit-transform: translateY(-100em);
+  transform: translateY(-100em);
+}
+/* line 38, ../sass/_overlay.scss */
+.overlay [role=dialog][aria-hidden="false"] {
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 @media screen and (max-width: 600px) {
-  /* line 18, ../sass/_overlay.scss */
-  .overlay [role=dialog] {
+  /* line 38, ../sass/_overlay.scss */
+  .overlay [role=dialog][aria-hidden="false"] {
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
     -webkit-transform: translateY(0);
@@ -553,12 +569,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     top: 2em;
   }
 }
-/* line 39, ../sass/_overlay.scss */
+/* line 50, ../sass/_overlay.scss */
 .overlay .invitee-name,
 .overlay h1 {
   text-shadow: 0 1px 2px #333;
 }
-/* line 44, ../sass/_overlay.scss */
+/* line 55, ../sass/_overlay.scss */
 .overlay .invitees button,
 .overlay textarea,
 .overlay [type="submit"] {
@@ -566,36 +582,41 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
 }
-/* line 50, ../sass/_overlay.scss */
+/* line 61, ../sass/_overlay.scss */
 .overlay .invitees {
   float: left;
 }
-/* line 53, ../sass/_overlay.scss */
+/* line 64, ../sass/_overlay.scss */
 .overlay .invitees li {
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  max-height: 3em;
   color: white;
   font-size: 1.6em;
   margin-bottom: 0.5em;
 }
-/* line 59, ../sass/_overlay.scss */
+/* line 72, ../sass/_overlay.scss */
 .overlay .invitees .invitee-name {
   display: inline-block;
   width: 7.5em;
 }
-/* line 64, ../sass/_overlay.scss */
+/* line 77, ../sass/_overlay.scss */
 .overlay .invitees button {
   font-size: 0.8em;
   border: none;
   background: lightblue;
 }
-/* line 68, ../sass/_overlay.scss */
+/* line 81, ../sass/_overlay.scss */
 .overlay .invitees button:active {
   background: lightblue;
 }
-/* line 71, ../sass/_overlay.scss */
+/* line 84, ../sass/_overlay.scss */
 .overlay .invitees button:focus {
   outline: none;
 }
-/* line 77, ../sass/_overlay.scss */
+/* line 90, ../sass/_overlay.scss */
 .overlay [type=submit] {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -607,16 +628,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   float: right;
   padding: 0.4em;
 }
-/* line 92, ../sass/_overlay.scss */
+/* line 105, ../sass/_overlay.scss */
 .overlay header {
   margin: 1em 0;
 }
-/* line 96, ../sass/_overlay.scss */
+/* line 109, ../sass/_overlay.scss */
 .overlay h1 {
   font-size: 2.2em;
   color: white;
 }
-/* line 101, ../sass/_overlay.scss */
+/* line 114, ../sass/_overlay.scss */
 .overlay textarea {
   border: none;
   font-size: 1.5em;
@@ -625,7 +646,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 9.7em;
   margin-bottom: 0.5em;
 }
-/* line 110, ../sass/_overlay.scss */
+/* line 123, ../sass/_overlay.scss */
 .overlay .success {
   -moz-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;

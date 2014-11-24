@@ -15,12 +15,12 @@ var Drag = {
     create: function(obj) {
       var default_msg = "Please come to this thing, everyone!",
           list        = obj.friends_list,
-          overlay     = obj.overlay,
           event_title = obj.event_title,
           friends     = list.querySelectorAll("li"),
           close_btn;
 
-      overlay.innerHTML = "<div " +
+      Drag.overlay.innerHTML = "<div " +
+                            "aria-hidden='true' " +
                             "aria-labelledby='event-title-header' " +
                             "role='dialog' " +
                             "class='modal' " +
@@ -45,18 +45,16 @@ var Drag = {
                             "<button tabindex='0' onclick='Drag.modal.hide()' aria-label='close dialog' value='close dialog'>" +
                             "</button>" +
                           "</div>";
+      Drag.modal.show();
     },
 
-    show: function(obj) {
-      this.create(obj);
-      obj.overlay.setAttribute("aria-hidden", "false");
-      obj.overlay.querySelector(".modal").focus();
+    show: function() {
+      Drag.overlay.setAttribute("aria-hidden", "false");
     },
 
     hide: function() {
-      var overlay = document.querySelector(".overlay");
-      overlay.setAttribute("aria-hidden", "true");
-      overlay.innerHTML = "";
+      Drag.overlay.setAttribute("aria-hidden", "true");
+      Drag.overlay.innerHTML = "";
     },
 
     isOpen: function() {
@@ -106,7 +104,7 @@ var Drag = {
     },
 
     whichAnimationEvent: function() {
-      var t,
+      var a,
           el = document.createElement('fakeelement'),
           animations = {
             'animation':'animationend',
@@ -115,9 +113,26 @@ var Drag = {
             'WebkitTransition':'webkitAnimationEnd'
           };
 
-      for (t in animations){
+      for (a in animations){
+        if(el.style[a] !== undefined){
+          return animations[a];
+        }
+      }
+    },
+
+    whichTransitionEvent: function() {
+      var t,
+          el = document.createElement('fakeelement'),
+          transitions = {
+            'transition':'transitionend',
+            'OTransition':'oTransitionEnd',
+            'MozTransition':'transitionend',
+            'WebkitTransition':'webkitTransitionEnd'
+          };
+
+      for (t in transitions){
         if(el.style[t] !== undefined){
-          return animations[t];
+          return transitions[t];
         }
       }
     }
@@ -131,6 +146,7 @@ var Drag = {
     Drag.target_els         = this.utils.getTargetElements();
     Drag.effectAllowed      = config.effectAllowed || "copy";
     Drag.dropEffect         = config.dropEffect || "copy";
+    Drag.overlay            = document.querySelector(".overlay");
 
     Drag.bindEvents();
     Drag.touchSupport();
@@ -160,14 +176,16 @@ var Drag = {
   },
 
   bindEvents: function() {
-    var that     = this,
-        touchobj = null, // Touch object holder
-        distx    = 0,    // x distance traveled by touch point
-        disty    = 0,    // y distance traveled by touch point
-        startx,          // starting x coordinate of touch point
-        starty,          // starting y coordinate of touch point
-        obj_left,        // left position of moving element
-        obj_top;         // top position of mobing element
+    var that           = this,
+        touchobj       = null, // Touch object holder
+        distx          = 0,    // x distance traveled by touch point
+        disty          = 0,    // y distance traveled by touch point
+        startx,                // starting x coordinate of touch point
+        starty,                // starting y coordinate of touch point
+        obj_left,              // left position of moving element
+        obj_top,               // top position of mobing element
+        transition_end = Drag.utils.whichTransitionEvent(),
+        modal;
 
     [].forEach.call(that.draggable_els, function(el, index) {
       el.addEventListener('dragstart', function(e) { that.handleDragStart(e); });
@@ -186,6 +204,15 @@ var Drag = {
       el.addEventListener('touchstart', function(e) { that.handleTarget(e); });
     });
 
+    // completion of overlay transition reveals modal
+    transition_end && Drag.overlay.addEventListener(transition_end, function() {
+      if (Drag.overlay.getAttribute("aria-hidden") === "false") {
+        modal = Drag.overlay.querySelector(".modal");
+        modal.setAttribute("aria-hidden", "false");
+      }
+    });
+
+    // escape key should close modal
     document.onkeydown = function(e) {
       var ESCAPE = 27;
       e = e || window.event;
@@ -203,8 +230,7 @@ var Drag = {
     if (typeof list !== "undefined" && list.dataset.listSize > 0) {
       this.utils.removeTargetStyles("over", e);
 
-      this.modal.show({
-        overlay     : document.querySelector(".overlay"),
+      this.modal.create({
         event_title : target.querySelector(".event-name").innerHTML,
         num_friends : list.dataset.listSize,
         friends_list: list
@@ -379,6 +405,7 @@ var Drag = {
   },
 
   resetTargetStates: function() {
+    Drag.colliding = false;
     [].forEach.call(this.draggable_els, function (el) {
       el.classList.remove("enable-transition");
     });
@@ -391,21 +418,28 @@ var Drag = {
   },
 
   removeInvitee: function(btn, invitee_name) {
-    var li            = btn.parentNode,
-        invitee_list  = document.querySelector(".over ul"),
-        invitees      = invitee_list.querySelectorAll("li"),
-        empty_html    = "<li>You&rsquo;ve removed all event invites.</li>",
+    var li             = btn.parentNode,
+        invitee_list   = document.querySelector(".over ul"),
+        invitees       = invitee_list.querySelectorAll("li"),
+        empty_html     = "<li>You&rsquo;ve removed all event invites.</li>",
+        transition_end = Drag.utils.whichTransitionEvent(),
         tmp_name,
-        disableSubmit = function() {
+        disableSubmit  = function() {
           document
             .querySelector(".modal [type=submit]")
-          . setAttribute("disabled", "disabled");
+            .setAttribute("disabled", "disabled");
+        },
+        removeFromDOM  = function() {
+          li.classList.add("item-remove-row");
+          transition_end && li.addEventListener(transition_end, function() {
+            try { li.parentNode.removeChild(li); } catch(err) {}
+          });
         };
 
-    // visually remove the invitee
-    li.classList.add("item-remove-row");
+    // remove the invitee from the modal
+    removeFromDOM();
 
-    // actually remove the invitee from the target list
+    // remove the invitee from the target list beneath the modal
     [].forEach.call(invitees, function(invitee) {
       tmp_name = invitee.querySelector(".invitee-name").innerHTML;
 
