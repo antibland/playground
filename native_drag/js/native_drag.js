@@ -268,8 +268,9 @@ var Drag = {
     this.starty = parseInt(this.touchobj.clientY) // get y coord of touch point
 
     this.resetTargetStates();
-    target.nextSibling.classList.add("shown");
     this.loadPositions();
+    target.nextSibling.classList.add("shown");
+    target.setAttribute("aria-grabbed", "true");
 
     if (e.preventDefault) {
       e.preventDefault();
@@ -284,8 +285,6 @@ var Drag = {
     this.disty = parseInt(this.touchobj.clientY) - this.starty;
     target.style.left = (this.obj_left + this.distx) + "px";
     target.style.top = (this.obj_top + this.disty) + "px";
-
-    target.setAttribute("aria-grabbed", "true");
 
     if (e.preventDefault) {
       e.preventDefault();
