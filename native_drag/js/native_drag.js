@@ -128,6 +128,14 @@ var Drag = {
           return transitions[t];
         }
       }
+    },
+
+    getBrowserPrefix: function() {
+      return (/mozilla/.test(navigator.userAgent.toLowerCase()) &&
+             !/webkit/.test(navigator.userAgent.toLowerCase())) ? '-moz-' :
+             (/webkit/.test(navigator.userAgent.toLowerCase())) ? '-webkit-' :
+             (/msie/.test(navigator.userAgent.toLowerCase()))   ? '-ms-' :
+             (/opera/.test(navigator.userAgent.toLowerCase()))  ? '-o-' : '';
     }
   },
 
@@ -151,11 +159,7 @@ var Drag = {
         b             = Array.prototype.slice.call(Drag.target_els),
         all_els       = a.concat(b),
         animation_end = Drag.utils.whichAnimationEvent(),
-        prefix        = (/mozilla/.test(navigator.userAgent.toLowerCase()) &&
-                        !/webkit/.test(navigator.userAgent.toLowerCase())) ? '-moz-' :
-                        (/webkit/.test(navigator.userAgent.toLowerCase())) ? '-webkit-' :
-                        (/msie/.test(navigator.userAgent.toLowerCase()))   ? '-ms-' :
-                        (/opera/.test(navigator.userAgent.toLowerCase()))  ? '-o-' : '';
+        prefix        = Drag.utils.getBrowserPrefix();
 
     [].forEach.call(all_els, function(el, index) {
       if (el.className !== "clone") {
