@@ -5,7 +5,7 @@ What is it?
 -----------
 Sometimes I have ideas for short demos and concise little ideas. Now there's a place for them to be stored and shared.
 
-Although I use 3rd party libraries at work, I don't like relying on them in my free time. All of these demos are written using native JavaScript, scss and HTML5. In addition, I try to make the examples accessible as possible.
+Although I use 3rd party libraries at work, I don't like relying on them in my free time. All of these demos are written using native JavaScript, sass (scss) and HTML5. In addition, I try to make the examples accessible as possible.
 
 What's in here?
 ---------------
