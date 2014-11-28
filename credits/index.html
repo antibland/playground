@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Credits</title>
+</head>
+<body>
+
+</body>
+
+<script src="bower_components/chance/chance.js"></script>
+<script src="js/roles.js"></script>
+<script>
+  var credits = (function() {
+    var names = [],
+        len   = roles.length;
+
+    function init() {
+      for (var i = 0; i < len; i++) {
+        names.push(chance.name());
+      }
+    }
+
+    return { init : init };
+  })();
+
+  credits.init();
+</script>
+</html>
