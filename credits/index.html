@@ -3,9 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Credits</title>
+  <link rel="stylesheet" href="stylesheets/main.css">
 </head>
 <body>
+  <nav role="navigation">
+    <select id="choices">
+      <option value="big-buck-bunny" selected>Big Buck Bunny Movie</option>
+      <option value="random-animals">Random Animals</option>
+      <option value="blank">Blank</option>
+    </select>
+  </nav>
+  <main role="main"></main>
+  <video autoplay muted loop id="video-bunny">
+    <source src="media/big-buck-bunny.mp4" type="video/mp4">
+    <source src="media/big-buck-bunny.ogg" type='video/ogg; codecs="theora, vorbis"'>
+</source>
 
+  </video>
 </body>
 
 <script src="bower_components/chance/chance.js"></script>
@@ -13,12 +27,64 @@
 <script>
   var credits = (function() {
     var names = [],
-        len   = roles.length;
+        len   = roles.length,
+        vid   = document.querySelector("video"),
+        main  = document.querySelector("main");
 
     function init() {
+      var choices = document.querySelector("#choices");
+
       for (var i = 0; i < len; i++) {
         names.push(chance.name());
       }
+
+      choices.addEventListener("change", function(e) {
+        var choice = this.value,
+            source0, source1;
+
+        if (choice !== "blank") {
+          vid.style.display = "block";
+          vid.setAttribute("id", this.value);
+          source0 = vid.querySelectorAll("source")[0];
+          source1 = vid.querySelectorAll("source")[1];
+          source0.setAttribute("src", "media/" + this.value + ".mp4");
+          source0.setAttribute("type", "video/mp4");
+          source1.setAttribute("src", "media/" + this.value + ".ogg");
+          source1.setAttribute("type", 'video/ogg; codecs="theora, vorbis"');
+          vid.load();
+        } else {
+          vid.style.display = "none";
+        }
+
+        restartCredits();
+      });
+
+      buildCredits();
+    }
+
+    function restartCredits() {
+      main.classList.remove("animate");
+      setTimeout(function() {
+        main.classList.add("animate");
+      }, 300);
+    }
+
+    function buildCredits() {
+      var dl, dt, dd, i;
+
+      dl = document.createElement("dl");
+
+      for (i = 0; i < len; i++) {
+        dt = document.createElement("dt");
+        dt.appendChild(document.createTextNode(roles[i]));
+        dd = document.createElement("dd");
+        dd.appendChild(document.createTextNode(names[i]));
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+      }
+
+      main.appendChild(dl);
+      main.classList.add("animate");
     }
 
     return { init : init };
