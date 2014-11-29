@@ -142,11 +142,10 @@ html, body {
 body {
   background-color: black;
   color: white;
-  overflow: hidden;
   font: 300 30px/1 'Open Sans Condensed', sans-serif;
 }
 
-/* line 36, ../sass/main.scss */
+/* line 35, ../sass/main.scss */
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -156,14 +155,14 @@ select {
   top: 1em;
 }
 
-/* line 44, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 main {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   height: 100%;
   text-align: center;
 }
-/* line 45, ../sass/main.scss */
+/* line 44, ../sass/main.scss */
 main.animate {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
@@ -173,7 +172,7 @@ main.animate {
   animation: scroll-up 100s infinite;
 }
 
-/* line 54, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 dl {
   pointer-events: none;
   width: 50%;
@@ -183,7 +182,7 @@ dl {
   min-width: 18em;
 }
 
-/* line 63, ../sass/main.scss */
+/* line 62, ../sass/main.scss */
 dt {
   width: 40%;
   float: left;
@@ -194,7 +193,7 @@ dt {
   top: 0.25em;
 }
 
-/* line 73, ../sass/main.scss */
+/* line 72, ../sass/main.scss */
 dd {
   width: 60%;
   float: right;
@@ -202,7 +201,7 @@ dd {
   padding-left: 0.35em;
 }
 
-/* line 80, ../sass/main.scss */
+/* line 79, ../sass/main.scss */
 video {
   position: fixed;
   right: 0px;
