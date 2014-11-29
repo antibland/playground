@@ -10,7 +10,7 @@ Although I use 3rd party libraries at work, I don't like relying on them in my f
 What's in here?
 ---------------
 
-###Movie Credits###
+###Animated Movie Credits###
 
 CSS-style movie credits, because why not?
 
