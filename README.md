@@ -10,6 +10,14 @@ Although I use 3rd party libraries at work, I don't like relying on them in my f
 What's in here?
 ---------------
 
+###Movie Credits###
+
+CSS-style movie credits, because why not?
+
+![alt tag](https://dl.dropboxusercontent.com/u/24799515/img_share/credits.png)
+
+The movie roles (Director, Makeup, etc.) are generated from a static JavaScript array. The names are randomly generated using [Chance.js](http://chancejs.com/). If you add or remove roles, the generated name length will adjust itself. The credits definition list moves using a simple CSS transform.
+
 ###Questionnaire###
 
 ![alt tag](https://dl.dropboxusercontent.com/u/24799515/img_share/questionnaire.png)
