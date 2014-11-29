@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 /* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -119,32 +120,33 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: translateY(-650%);
   }
 }
-/* line 15, ../sass/main.scss */
+/* line 16, ../sass/main.scss */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 18, ../sass/main.scss */
+/* line 19, ../sass/main.scss */
 *:after, *:before {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 24, ../sass/main.scss */
+/* line 25, ../sass/main.scss */
 html, body {
   height: 100%;
 }
 
-/* line 28, ../sass/main.scss */
+/* line 29, ../sass/main.scss */
 body {
   background-color: black;
   color: white;
   overflow: hidden;
+  font: 300 30px/1 'Open Sans Condensed', sans-serif;
 }
 
-/* line 34, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -154,14 +156,14 @@ select {
   top: 1em;
 }
 
-/* line 42, ../sass/main.scss */
+/* line 44, ../sass/main.scss */
 main {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   height: 100%;
   text-align: center;
 }
-/* line 43, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 main.animate {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
@@ -171,17 +173,17 @@ main.animate {
   animation: scroll-up 100s infinite;
 }
 
-/* line 52, ../sass/main.scss */
+/* line 54, ../sass/main.scss */
 dl {
   width: 50%;
   margin: 0 auto;
   line-height: 1.8em;
-  font-size: 1.2em;
+  font-size: 0.9em;
   height: 100%;
   min-width: 18em;
 }
 
-/* line 61, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 dt {
   width: 50%;
   float: left;
@@ -189,7 +191,7 @@ dt {
   padding-right: 0.25em;
 }
 
-/* line 68, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 dd {
   width: 50%;
   float: right;
@@ -197,7 +199,7 @@ dd {
   padding-left: 0.25em;
 }
 
-/* line 75, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 video {
   position: fixed;
   right: 0px;
