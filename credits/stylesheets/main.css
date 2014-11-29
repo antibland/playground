@@ -178,28 +178,30 @@ dl {
   width: 50%;
   margin: 0 auto;
   line-height: 1.8em;
-  font-size: 0.9em;
   height: 100%;
   min-width: 18em;
 }
 
-/* line 63, ../sass/main.scss */
+/* line 62, ../sass/main.scss */
 dt {
   width: 50%;
   float: left;
   text-align: right;
-  padding-right: 0.25em;
+  padding-right: 0.35em;
+  font-size: 0.5em;
+  position: relative;
+  top: 0.25em;
 }
 
-/* line 70, ../sass/main.scss */
+/* line 72, ../sass/main.scss */
 dd {
   width: 50%;
   float: right;
   text-align: left;
-  padding-left: 0.25em;
+  padding-left: 0.35em;
 }
 
-/* line 77, ../sass/main.scss */
+/* line 79, ../sass/main.scss */
 video {
   position: fixed;
   right: 0px;
