@@ -175,6 +175,7 @@ main.animate {
 
 /* line 54, ../sass/main.scss */
 dl {
+  pointer-events: none;
   width: 50%;
   margin: 0 auto;
   line-height: 1.8em;
@@ -182,7 +183,7 @@ dl {
   min-width: 18em;
 }
 
-/* line 62, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 dt {
   width: 40%;
   float: left;
@@ -193,7 +194,7 @@ dt {
   top: 0.25em;
 }
 
-/* line 72, ../sass/main.scss */
+/* line 73, ../sass/main.scss */
 dd {
   width: 60%;
   float: right;
@@ -201,7 +202,7 @@ dd {
   padding-left: 0.35em;
 }
 
-/* line 79, ../sass/main.scss */
+/* line 80, ../sass/main.scss */
 video {
   position: fixed;
   right: 0px;
