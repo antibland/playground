@@ -1,244 +1,49 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
-/* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
 
-/* line 22, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-html {
-  line-height: 1;
-}
+html { line-height: 1; }
 
-/* line 24, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-ol, ul {
-  list-style: none;
-}
+ol, ul { list-style: none; }
 
-/* line 26, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+table { border-collapse: collapse; border-spacing: 0; }
 
-/* line 28, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
 
-/* line 30, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-q, blockquote {
-  quotes: none;
-}
-/* line 103, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
 
-/* line 32, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-a img {
-  border: none;
-}
+a img { border: none; }
 
-/* line 116, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
 
-@-webkit-keyframes scroll-up {
-  from {
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-  }
-  to {
-    -moz-transform: translateY(-650%);
-    -ms-transform: translateY(-650%);
-    -webkit-transform: translateY(-650%);
-    transform: translateY(-650%);
-  }
-}
-@-moz-keyframes scroll-up {
-  from {
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-  }
-  to {
-    -moz-transform: translateY(-650%);
-    -ms-transform: translateY(-650%);
-    -webkit-transform: translateY(-650%);
-    transform: translateY(-650%);
-  }
-}
-@-o-keyframes scroll-up {
-  from {
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-  }
-  to {
-    -moz-transform: translateY(-650%);
-    -ms-transform: translateY(-650%);
-    -webkit-transform: translateY(-650%);
-    transform: translateY(-650%);
-  }
-}
-@keyframes scroll-up {
-  from {
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-  }
-  to {
-    -moz-transform: translateY(-650%);
-    -ms-transform: translateY(-650%);
-    -webkit-transform: translateY(-650%);
-    transform: translateY(-650%);
-  }
-}
-/* line 42, ../sass/main.scss */
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-/* line 45, ../sass/main.scss */
-*:after, *:before {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+@-webkit-keyframes scroll-up { from { -moz-transform: translateY(100%); -ms-transform: translateY(100%); -webkit-transform: translateY(100%); transform: translateY(100%); }
+  to { -moz-transform: translateY(-650%); -ms-transform: translateY(-650%); -webkit-transform: translateY(-650%); transform: translateY(-650%); } }
+@-moz-keyframes scroll-up { from { -moz-transform: translateY(100%); -ms-transform: translateY(100%); -webkit-transform: translateY(100%); transform: translateY(100%); }
+  to { -moz-transform: translateY(-650%); -ms-transform: translateY(-650%); -webkit-transform: translateY(-650%); transform: translateY(-650%); } }
+@-o-keyframes scroll-up { from { -moz-transform: translateY(100%); -ms-transform: translateY(100%); -webkit-transform: translateY(100%); transform: translateY(100%); }
+  to { -moz-transform: translateY(-650%); -ms-transform: translateY(-650%); -webkit-transform: translateY(-650%); transform: translateY(-650%); } }
+@keyframes scroll-up { from { -moz-transform: translateY(100%); -ms-transform: translateY(100%); -webkit-transform: translateY(100%); transform: translateY(100%); }
+  to { -moz-transform: translateY(-650%); -ms-transform: translateY(-650%); -webkit-transform: translateY(-650%); transform: translateY(-650%); } }
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+*:after, *:before { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-/* line 51, ../sass/main.scss */
-html, body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
-/* line 55, ../sass/main.scss */
-body {
-  background-color: black;
-  color: white;
-  font: 300 30px/1 'Open Sans Condensed', sans-serif;
-}
+body { background-color: black; color: white; font: 300 30px/1 'Open Sans Condensed', sans-serif; }
 
-/* line 61, ../sass/main.scss */
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  padding: 1em;
-  position: absolute;
-  left: 1em;
-  top: 1em;
-}
+select { -moz-appearance: none; -webkit-appearance: none; padding: 1em; position: absolute; left: 1em; top: 1em; }
 
-/* line 69, ../sass/main.scss */
-main {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  height: 100%;
-  text-align: center;
-}
-/* line 74, ../sass/main.scss */
-main.animate {
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-  opacity: 1;
-}
-/* line 21, ../sass/main.scss */
-main.animate dl {
-  -webkit-animation: scroll-up 100s infinite;
-  -moz-animation: scroll-up 100s infinite;
-  -o-animation: scroll-up 100s infinite;
-  animation: scroll-up 100s infinite;
-}
-/* line 77, ../sass/main.scss */
-main.animate.star-wars {
-  -moz-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  -webkit-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  -moz-transform: perspective(300px) rotateX(25deg);
-  -ms-transform: perspective(300px) rotateX(25deg);
-  -webkit-transform: perspective(300px) rotateX(25deg);
-  transform: perspective(300px) rotateX(25deg);
-}
-/* line 30, ../sass/main.scss */
-main.animate.star-wars dl {
-  min-width: 100%;
-  position: absolute;
-  font-size: 4em;
-  color: #ff6;
-}
-/* line 37, ../sass/main.scss */
-main.animate.star-wars dt, main.animate.star-wars dd {
-  white-space: nowrap;
-}
+main { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; height: 100%; text-align: center; }
+main.animate { filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false); opacity: 1; }
+main.animate dl { -webkit-animation: scroll-up 100s infinite; -moz-animation: scroll-up 100s infinite; -o-animation: scroll-up 100s infinite; animation: scroll-up 100s infinite; }
+main.animate.star-wars { -moz-transform-origin: 50% 100%; -ms-transform-origin: 50% 100%; -webkit-transform-origin: 50% 100%; transform-origin: 50% 100%; -moz-transform: perspective(300px) rotateX(25deg); -ms-transform: perspective(300px) rotateX(25deg); -webkit-transform: perspective(300px) rotateX(25deg); transform: perspective(300px) rotateX(25deg); }
+main.animate.star-wars dl { min-width: 100%; position: absolute; font-size: 4em; color: #ff6; }
+main.animate.star-wars dt, main.animate.star-wars dd { white-space: nowrap; }
 
-/* line 83, ../sass/main.scss */
-dl {
-  pointer-events: none;
-  width: 50%;
-  margin: 0 auto;
-  line-height: 1.8em;
-  height: 100%;
-  min-width: 18em;
-}
+dl { pointer-events: none; width: 50%; margin: 0 auto; line-height: 1.8em; height: 100%; min-width: 18em; }
 
-/* line 92, ../sass/main.scss */
-dt {
-  width: 40%;
-  float: left;
-  text-align: right;
-  padding-right: 0.35em;
-  font-size: 0.5em;
-  position: relative;
-  top: 0.25em;
-}
+dt { width: 40%; float: left; text-align: right; padding-right: 0.35em; font-size: 0.5em; position: relative; top: 0.25em; }
 
-/* line 102, ../sass/main.scss */
-dd {
-  width: 60%;
-  float: right;
-  text-align: left;
-  padding-left: 0.35em;
-}
+dd { width: 60%; float: right; text-align: left; padding-left: 0.35em; }
 
-/* line 109, ../sass/main.scss */
-video {
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  background-repeat: no-repeat;
-}
+video { -moz-background-size: cover; -o-background-size: cover; -webkit-background-size: cover; background-size: cover; position: fixed; right: 0px; bottom: 0px; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -100; background-repeat: no-repeat; }
