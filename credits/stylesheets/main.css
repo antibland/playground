@@ -120,32 +120,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: translateY(-650%);
   }
 }
-/* line 16, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 19, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 *:after, *:before {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 25, ../sass/main.scss */
+/* line 51, ../sass/main.scss */
 html, body {
   height: 100%;
 }
 
-/* line 29, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 body {
   background-color: black;
   color: white;
   font: 300 30px/1 'Open Sans Condensed', sans-serif;
 }
 
-/* line 35, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -155,24 +155,49 @@ select {
   top: 1em;
 }
 
-/* line 43, ../sass/main.scss */
+/* line 69, ../sass/main.scss */
 main {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   height: 100%;
   text-align: center;
 }
-/* line 44, ../sass/main.scss */
+/* line 74, ../sass/main.scss */
 main.animate {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
+}
+/* line 21, ../sass/main.scss */
+main.animate dl {
   -webkit-animation: scroll-up 100s infinite;
   -moz-animation: scroll-up 100s infinite;
   -o-animation: scroll-up 100s infinite;
   animation: scroll-up 100s infinite;
 }
+/* line 77, ../sass/main.scss */
+main.animate.star-wars {
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -moz-transform: perspective(300px) rotateX(25deg);
+  -ms-transform: perspective(300px) rotateX(25deg);
+  -webkit-transform: perspective(300px) rotateX(25deg);
+  transform: perspective(300px) rotateX(25deg);
+}
+/* line 30, ../sass/main.scss */
+main.animate.star-wars dl {
+  min-width: 100%;
+  position: absolute;
+  font-size: 4em;
+  color: #ff6;
+}
+/* line 37, ../sass/main.scss */
+main.animate.star-wars dt, main.animate.star-wars dd {
+  white-space: nowrap;
+}
 
-/* line 53, ../sass/main.scss */
+/* line 83, ../sass/main.scss */
 dl {
   pointer-events: none;
   width: 50%;
@@ -182,7 +207,7 @@ dl {
   min-width: 18em;
 }
 
-/* line 62, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 dt {
   width: 40%;
   float: left;
@@ -193,7 +218,7 @@ dt {
   top: 0.25em;
 }
 
-/* line 72, ../sass/main.scss */
+/* line 102, ../sass/main.scss */
 dd {
   width: 60%;
   float: right;
@@ -201,8 +226,12 @@ dd {
   padding-left: 0.35em;
 }
 
-/* line 79, ../sass/main.scss */
+/* line 109, ../sass/main.scss */
 video {
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
   position: fixed;
   right: 0px;
   bottom: 0px;
@@ -212,5 +241,4 @@ video {
   height: auto;
   z-index: -100;
   background-repeat: no-repeat;
-  background-size: cover;
 }

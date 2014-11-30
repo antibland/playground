@@ -3,6 +3,8 @@
 @import "mixins";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
+$yellow: #ff6;
+
 @include keyframes(scroll-up) {
   from {
     @include transform(translateY(100%));
@@ -10,6 +12,30 @@
 
   to {
     @include transform(translateY(-650%));
+  }
+}
+
+@mixin animate-rules {
+  @include opacity(1);
+
+  dl {
+    @include animation("scroll-up 100s infinite");
+  }
+}
+
+@mixin animate-star-wars-rules {
+  @include transform-origin(50%, 100%);
+  @include transform(perspective(300px) rotateX(25deg));
+
+  dl {
+    min-width: 100%;
+    position: absolute;
+    font-size: 4em;
+    color: $yellow;
+  }
+
+  dt, dd {
+    white-space: nowrap;
   }
 }
 
@@ -41,13 +67,17 @@ select {
 }
 
 main {
-  &.animate {
-    @include opacity(1);
-    @include animation("scroll-up 100s infinite");
-  }
   @include opacity(0);
   height: 100%;
   text-align: center;
+
+  &.animate {
+    @include animate-rules;
+
+    &.star-wars {
+      @include animate-star-wars-rules;
+    }
+  }
 }
 
 dl {
@@ -77,6 +107,7 @@ dd {
 }
 
 video {
+  @include background-size(cover);
   position: fixed;
   right: 0px;
   bottom: 0px;
@@ -86,5 +117,4 @@ video {
   height: auto;
   z-index: -100;
   background-repeat: no-repeat;
-  background-size: cover;
 }
