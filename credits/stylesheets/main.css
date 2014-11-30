@@ -29,9 +29,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 html, body { height: 100%; }
 
-body { background-color: black; color: white; font: 300 30px/1 'Open Sans Condensed', sans-serif; }
+body { background-color: black; color: white; font: 300 1.875em/1 'Open Sans Condensed', sans-serif; }
 
-select { -moz-appearance: none; -webkit-appearance: none; padding: 1em; position: absolute; left: 1em; top: 1em; }
+select { -moz-transform: translateZ(0); -ms-transform: translateZ(0); -webkit-transform: translateZ(0); transform: translateZ(0); -moz-appearance: none; -webkit-appearance: none; padding: 1em; position: fixed; left: 1em; top: 1em; }
 
 main { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; height: 100%; text-align: center; }
 main.animate { filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false); opacity: 1; }

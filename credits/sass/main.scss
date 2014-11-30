@@ -55,13 +55,14 @@ html, body {
 body {
   background-color: black;
   color: white;
-  font: 300 30px/1 'Open Sans Condensed', sans-serif;
+  font: 300 1.875em/1 'Open Sans Condensed', sans-serif;
 }
 
 select {
+  @include transform(translateZ(0));
   @include appearance(none);
   padding: 1em;
-  position: absolute;
+  position: fixed;
   left: 1em;
   top: 1em;
 }
