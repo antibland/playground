@@ -12,18 +12,14 @@ A swaggy place to rock and roll.
 What's in here?
 ---------------
 
-###Animated Movie Credits###
-
-CSS-style movie credits, because why not?
-
+<h3 align="center">Animated Movie Credits</h3>
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/credits.png" alt="">
 </p>
 
 The movie roles (Director, Makeup, etc.) are generated from a static JavaScript array. The names are randomly generated using [Chance.js](http://chancejs.com/). If you add or remove roles, the generated name length will adjust itself. The credits definition list moves using a simple CSS transform.
 
-###Questionnaire###
-
+<h3 align="center">Questionnaire</h3>
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/questionnaire.png" alt="">
 </p>
@@ -39,8 +35,8 @@ To use it, simply include questions.js, a simple JSON array, and questionnaire.j
 var questionnaire = Object.create(Questionnaire);
 questionnaire.init();
 ```
-###Native Drag and Drop###
 
+<h3 align="center">Native Drag and Drop</h3>
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/drag.gif" alt="">
 </p>
