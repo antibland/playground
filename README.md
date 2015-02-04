@@ -5,7 +5,7 @@ What is it?
 -----------
 Sometimes I have ideas for short demos and concise little ideas. Now there's a place for these ideas to live and grow.
 
-Although I use 3rd party libraries at work, I don't like relying on them in my free time. All of these demos are written using native JavaScript, sass (scss) and HTML5. In addition, I try to make the examples accessible as possible.
+Although I use 3<sup>rd</sup> party libraries at work, I don't like relying on them in my free time. All of these demos are written using native JavaScript, sass (scss) and HTML5. I try to make the examples accessible as possible.
 
 A swaggy place to rock and roll.
 
