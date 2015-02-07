@@ -129,6 +129,10 @@ body {
         max-height: 0;
         pointer-events: none;
       }
+
+      &.final:before {
+        display: none;
+      }
     }
 
     li ul {
@@ -155,7 +159,6 @@ body {
     bottom: -1.3em;
     z-index: 100;
   }
-
 }
 
 .question-text {
@@ -165,4 +168,9 @@ body {
   display: block;
   height: 7.7em;
   overflow: auto;
+
+  .final & {
+    @include transform(translateY(50%));
+    margin: 0;
+  }
 }

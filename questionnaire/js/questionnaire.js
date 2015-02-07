@@ -56,9 +56,21 @@ var Questionnaire = {
   },
 
   showNextQuestion: function() {
-    this.setListItemState();
-    this.setActiveQuestionIndex(this.getActiveQuestionIndex());
-    this.setListItemState("false");
+    var question_index = this.getActiveQuestionIndex(),
+        current_list_item;
+
+    if (question_index >= questions.length) {
+      current_list_item = document
+        .querySelector("ol > li:nth-child(" + question_index + ")");
+
+      current_list_item.classList.add("final");
+      current_list_item.innerHTML = "<span class='question-text'>Thanks for voting!</span>";
+    } else {
+      this.setListItemState();
+      this.setActiveQuestionIndex(this.getActiveQuestionIndex());
+      this.setListItemState("false");
+    }
+
     this.disableSubmitButton();
   },
 
