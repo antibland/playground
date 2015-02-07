@@ -139,6 +139,53 @@ var Drag = {
     }
   },
 
+  bind: {
+    draggables: function() {
+      [].forEach.call(Drag.draggable_els, function(el, index) {
+        el.addEventListener('dragstart', function(e) { Drag.handleDragStart(e); });
+        el.addEventListener('dragend', function(e) { Drag.handleDragEnd(e); });
+        el.addEventListener('touchstart', function(e) { Drag.handleTouchStart(e, index); });
+        el.addEventListener('touchmove', function(e) { Drag.handleTouchMove(e, index); });
+        el.addEventListener('touchend', function(e) { Drag.handleTouchEnd(e, index); });
+      });
+    },
+
+    targets: function() {
+      [].forEach.call(Drag.target_els, function(el) {
+        el.addEventListener('dragenter', function(e) { Drag.handleDragEnter(e); });
+        el.addEventListener('dragleave', function(e) { Drag.handleDragLeave(e); });
+        el.addEventListener('dragover', function(e) { Drag.handleDragOver(e); });
+        el.addEventListener('drop', function(e) { Drag.handleDrop(e); });
+        el.addEventListener('click', function(e) { Drag.handleTarget(e); });
+        el.addEventListener('touchstart', function(e) { Drag.handleTarget(e); });
+      });
+    },
+
+    endAnimations: function() {
+      var transition_end = Drag.utils.whichTransitionEvent(),
+          modal;
+      // completion of overlay transition reveals modal
+      transition_end && Drag.overlay.addEventListener(transition_end, function() {
+        if (Drag.overlay.getAttribute("aria-hidden") === "false") {
+          modal = Drag.overlay.querySelector(".modal");
+          modal.setAttribute("aria-hidden", "false");
+        }
+      });
+    },
+
+    keydown: function() {
+      // escape key should close modal
+      document.onkeydown = function(e) {
+        var ESCAPE = 27;
+        e = e || window.event;
+
+        if (e.keyCode == ESCAPE && Drag.modal.isOpen()) {
+          Drag.modal.hide();
+        }
+      };
+    }
+  },
+
   init: function(config) {
     Drag.circle.width       = config.target_width;
     Drag.draggable_selector = config.draggable_selector;
@@ -173,51 +220,10 @@ var Drag = {
   },
 
   bindEvents: function() {
-    var that           = this,
-        touchobj       = null, // Touch object holder
-        distx          = 0,    // x distance traveled by touch point
-        disty          = 0,    // y distance traveled by touch point
-        startx,                // starting x coordinate of touch point
-        starty,                // starting y coordinate of touch point
-        obj_left,              // left position of moving element
-        obj_top,               // top position of mobing element
-        transition_end = Drag.utils.whichTransitionEvent(),
-        modal;
-
-    [].forEach.call(that.draggable_els, function(el, index) {
-      el.addEventListener('dragstart', function(e) { that.handleDragStart(e); });
-      el.addEventListener('dragend', function(e) { that.handleDragEnd(e); });
-      el.addEventListener('touchstart', function(e) { that.handleTouchStart(e, index); });
-      el.addEventListener('touchmove', function(e) { that.handleTouchMove(e, index); });
-      el.addEventListener('touchend', function(e) { that.handleTouchEnd(e, index); });
-    });
-
-    [].forEach.call(that.target_els, function(el) {
-      el.addEventListener('dragenter', function(e) { that.handleDragEnter(e); });
-      el.addEventListener('dragleave', function(e) { that.handleDragLeave(e); });
-      el.addEventListener('dragover', function(e) { that.handleDragOver(e); });
-      el.addEventListener('drop', function(e) { that.handleDrop(e); });
-      el.addEventListener('click', function(e) { that.handleTarget(e); });
-      el.addEventListener('touchstart', function(e) { that.handleTarget(e); });
-    });
-
-    // completion of overlay transition reveals modal
-    transition_end && Drag.overlay.addEventListener(transition_end, function() {
-      if (Drag.overlay.getAttribute("aria-hidden") === "false") {
-        modal = Drag.overlay.querySelector(".modal");
-        modal.setAttribute("aria-hidden", "false");
-      }
-    });
-
-    // escape key should close modal
-    document.onkeydown = function(e) {
-      var ESCAPE = 27;
-      e = e || window.event;
-
-      if (e.keyCode == ESCAPE && Drag.modal.isOpen()) {
-        Drag.modal.hide();
-      }
-    };
+     this.bind.draggables();
+     this.bind.targets();
+     this.bind.endAnimations();
+     this.bind.keydown();
   },
 
   handleTarget: function(e) {
