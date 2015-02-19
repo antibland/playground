@@ -17,7 +17,7 @@ What's in here?
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/credits.png" alt="">
 </p>
 
-The movie roles (Director, Makeup, etc.) are generated from a static `JavaScript` array. The names are randomly generated using [Chance.js](http://chancejs.com/). If you add or remove roles, the generated name length will adjust itself. The credits definition list `<dl>` moves using a `CSS` transform.
+The movie roles (Director, Makeup, etc.) are generated from a static `JavaScript` array. The names are randomly generated using [Chance.js](http://chancejs.com/). If you add or remove roles, the generated name length will adjust itself. The credits contain a definition list (`<dl>`) that moves using a `CSS` transform.
 
 <h3 align="center">Questionnaire</h3>
 <p align="center">
