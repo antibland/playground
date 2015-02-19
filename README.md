@@ -5,7 +5,7 @@ What is it?
 -----------
 Sometimes I have ideas for short demos and concise little ideas. Now there's a place for these ideas to live and grow.
 
-Although I use 3<sup>rd</sup> party libraries at work, I don't like relying on them in my free time. All of these demos are written using native JavaScript, sass (scss) and HTML5. I try to make the examples accessible as possible.
+Although I use 3<sup>rd</sup> party libraries at work, I don't like relying on them in my free time. All of these demos are written using native `JavaScript`, `sass` (`scss`) and `HTML5`. I try to make the examples accessible as possible.
 
 A swaggy place to rock and roll.
 
@@ -17,7 +17,7 @@ What's in here?
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/credits.png" alt="">
 </p>
 
-The movie roles (Director, Makeup, etc.) are generated from a static JavaScript array. The names are randomly generated using [Chance.js](http://chancejs.com/). If you add or remove roles, the generated name length will adjust itself. The credits definition list moves using a simple CSS transform.
+The movie roles (Director, Makeup, etc.) are generated from a static `JavaScript` array. The names are randomly generated using [Chance.js](http://chancejs.com/). If you add or remove roles, the generated name length will adjust itself. The credits definition list `<dl>` moves using a `CSS` transform.
 
 <h3 align="center">Questionnaire</h3>
 <p align="center">
@@ -26,7 +26,7 @@ The movie roles (Director, Makeup, etc.) are generated from a static JavaScript 
 
 It's still a work in progress, but the quentionnaire is kind of cool. It uses aria to control the start/stop of the animation, and counter-increment to show the current question number.
 
-To use it, simply include questions.js, a simple JSON array, and questionnaire.js, the file containing the object you'll need to instantiate. This code should go at the bottom of your page, just before the end of body.
+To use it, simply include questions.js, a simple `JSON` array, and questionnaire.js, the file containing the object you'll need to instantiate. This code should go at the bottom of your page, just before the end of body.
 
 ```javascript
 <script src="js/questions.js"></script>
@@ -41,7 +41,7 @@ questionnaire.init();
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/drag.gif" alt="">
 </p>
 
-You may be thinking, _why?_ Yes, there are a lot of drag and drop demos out in the wild, but few address accessibility as well as 3D CSS transforms. It's by no means perfect, though, and mobile support is ~~coming next~~ here.
+You may be thinking, _why?_ Yes, there are a lot of drag and drop demos out in the wild, but few address accessibility as well as 3D `CSS` transforms. It's by no means perfect, though, and mobile support is ~~coming next~~ here.
 
 Using it is very similar to all the demos I'll likely add to the playground.
 ```javascript
