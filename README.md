@@ -64,5 +64,5 @@ License
 
 [MIT][1]
 
-[1]: https://github.com/naayt/playground/blob/gh-pages/LICENSE
+[1]: https://github.com/naayt/playground/blob/master/LICENSE
 
