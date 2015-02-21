@@ -9,14 +9,6 @@ Although I use 3<sup>rd</sup> party libraries at work, I don't like relying on t
 
 A swaggy place to rock and roll.
 
-Demos
---------------
-[Animated Movie Credits][3]
-
-[Questionnaire][4]
-
-[Native Drag & Drop Bubbles][5]
-
 What's in here?
 ---------------
 
@@ -66,6 +58,13 @@ drag.init({
   target_selector: ".event"
 });
 ```
+Demos
+--------------
+[Animated Movie Credits][3]
+
+[Questionnaire][4]
+
+[Native Drag & Drop Bubbles][5]
 
 License
 -------
