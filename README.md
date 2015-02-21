@@ -24,7 +24,7 @@ The movie roles (Director, Makeup, etc.) are generated from a static `JavaScript
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/questionnaire.png" alt="">
 </p>
 
-It's still a work in progress, but the quentionnaire is kind of cool. It uses aria to control the start/stop of the animation, and counter-increment to show the current question number.
+It's still a work in progress, but the quentionnaire is kind of cool. It uses [WAI-ARIA][2] to control the start/stop of the animation, and counter-increment to show the current question number.
 
 To use it, simply include questions.js, a simple `JSON` array, and questionnaire.js, the file containing the object you'll need to instantiate. This code should go at the bottom of your page, just before the end of body.
 
@@ -65,4 +65,4 @@ License
 [MIT][1]
 
 [1]: https://github.com/naayt/playground/blob/master/LICENSE
-
+[2]: http://www.w3.org/TR/wai-aria/
