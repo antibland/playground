@@ -9,6 +9,14 @@ Although I use 3<sup>rd</sup> party libraries at work, I don't like relying on t
 
 A swaggy place to rock and roll.
 
+Demos
+--------------
+[Animated Movie Credits][3]
+
+[Questionnaire][4]
+
+[Native Drag & Drop Bubbles][5]
+
 What's in here?
 ---------------
 
@@ -36,7 +44,7 @@ var questionnaire = Object.create(Questionnaire);
 questionnaire.init();
 ```
 
-<h3 align="center">Native Drag and Drop</h3>
+<h3 align="center">Native Drag & Drop Bubbles</h3>
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/drag.gif" alt="">
 </p>
@@ -66,3 +74,6 @@ License
 
 [1]: https://github.com/naayt/playground/blob/master/LICENSE
 [2]: http://www.w3.org/TR/wai-aria/
+[3]: http://naayt.github.io/playground/credits/
+[4]: http://naayt.github.io/playground/questionnaire/
+[5]: http://naayt.github.io/playground/native_drag/
