@@ -39,10 +39,15 @@ var Drag = {
                             "</button>" +
                           "</div>";
       Drag.modal.show();
+      Drag.modal.focus();
     },
 
     show: function() {
       Drag.overlay.setAttribute("aria-hidden", "false");
+    },
+
+    focus: function() {
+      Drag.overlay.querySelector("[role=dialog]").focus();
     },
 
     hide: function() {
@@ -136,6 +141,21 @@ var Drag = {
              (/webkit/.test(navigator.userAgent.toLowerCase())) ? '-webkit-' :
              (/msie/.test(navigator.userAgent.toLowerCase()))   ? '-ms-' :
              (/opera/.test(navigator.userAgent.toLowerCase()))  ? '-o-' : '';
+    },
+
+    a11yClick: function(event){
+      if(event.type === 'click'){
+        return true;
+      }
+      else if(event.type === 'keypress'){
+        var code = event.charCode || event.keyCode;
+        if((code === 32)|| (code === 13)){
+            return true;
+        }
+      }
+      else{
+        return false;
+      }
     }
   },
 
@@ -157,6 +177,7 @@ var Drag = {
         el.addEventListener('dragover', function(e) { Drag.handleDragOver(e); });
         el.addEventListener('drop', function(e) { Drag.handleDrop(e); });
         el.addEventListener('click', function(e) { Drag.handleTarget(e); });
+        el.addEventListener('keypress', function(e) { Drag.handleTarget(e); });
         el.addEventListener('touchstart', function(e) { Drag.handleTarget(e); });
       });
     },
@@ -230,15 +251,18 @@ var Drag = {
     var target = e.target,
         list   = target.querySelector("ul") || undefined;
 
-    if (typeof list !== "undefined" && list.dataset.listSize > 0) {
-      this.utils.removeTargetStyles("over", e);
+    if (this.utils.a11yClick(e) === true) {
+      if (typeof list !== "undefined" && list.dataset.listSize > 0) {
+        this.utils.removeTargetStyles("over", e);
 
-      this.modal.create({
-        event_title : target.querySelector(".event-name").innerHTML,
-        num_friends : list.dataset.listSize,
-        friends_list: list
-      });
+        this.modal.create({
+          event_title : target.querySelector(".event-name").innerHTML,
+          num_friends : list.dataset.listSize,
+          friends_list: list
+        });
+      }
     }
+
   },
 
   touchSupport: function() {

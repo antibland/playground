@@ -15,7 +15,7 @@
 }
 
 main {
-  text-align: center;
+  text-align: center;;
 }
 
 body {
@@ -120,7 +120,12 @@ body {
     }
   }
 
+  &:focus {
+    outline: 1px dashed darkgray;
+  }
+
   &.over {
+    cursor: pointer;
     border-color: black;
     background: $touch_hover_background_color;
 

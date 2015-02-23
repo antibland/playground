@@ -818,11 +818,16 @@ body {
   text-align: center;
 }
 /* line 123, ../sass/main.scss */
+#events > li:focus {
+  outline: 1px dashed darkgray;
+}
+/* line 127, ../sass/main.scss */
 #events > li.over {
+  cursor: pointer;
   border-color: black;
   background: #ccc;
 }
-/* line 128, ../sass/main.scss */
+/* line 133, ../sass/main.scss */
 #events > li.over ul:after {
   -moz-transform: translateY(25%) scale3d(1, 1, 1);
   -ms-transform: translateY(25%) scale3d(1, 1, 1);
