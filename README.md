@@ -5,7 +5,7 @@ What is it?
 -----------
 Sometimes I have ideas for short demos and concise little ideas. Now there's a place for these ideas to live and grow.
 
-Although I use 3<sup>rd</sup> party libraries at work, I don't like relying on them in my free time. All of these demos are written using native `JavaScript`, `sass` (`scss`) and `HTML5`. I try to make the examples accessible as possible.
+Although I use 3<sup>rd</sup> party libraries at work, I don't like relying on them in my free time. All of these demos are written using vanilla `JavaScript`, `sass` (`scss`) and `HTML5`. I try to make the examples accessible as possible.
 
 A swaggy place to rock and roll.
 
@@ -36,7 +36,7 @@ var questionnaire = Object.create(Questionnaire);
 questionnaire.init();
 ```
 
-<h3 align="center">Native Drag & Drop Bubbles</h3>
+<h3 align="center">Drag & Drop Bubbles</h3>
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/drag.gif" alt="">
 </p>
@@ -64,7 +64,7 @@ Demos
 
 [Questionnaire][4]
 
-[Native Drag & Drop Bubbles][5]
+[Drag & Drop Bubbles][5]
 
 License
 -------
