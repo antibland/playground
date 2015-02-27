@@ -4,7 +4,7 @@ var questions = [
     options: [
       "Groundhog all the way",
       "Bumblebee because BEES",
-      "I refuse to answer this shit."
+      "I refuse to answer this shit"
     ]
   },
   {
@@ -19,7 +19,7 @@ var questions = [
     options: [
       "Groundhog all the way",
       "Bumblebee because BEES",
-      "I refuse to answer this shit."
+      "I refuse to answer this shit"
     ]
   },
   {
@@ -27,7 +27,7 @@ var questions = [
     options: [
       "Groundhog all the way",
       "Bumblebee because BEES",
-      "I refuse to answer this shit."
+      "I refuse to answer this shit"
     ]
   }
 ];
