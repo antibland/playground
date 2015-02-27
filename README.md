@@ -60,7 +60,7 @@ drag.init({
 ```
 Demos
 --------------
-[Animated Movie Credits][3]
+[Movie-style Credits][3]
 
 [Questionnaire][4]
 
