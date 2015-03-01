@@ -34,12 +34,12 @@ var Questionnaire = {
 
     this.submit_button.addEventListener("click", function() {
       that.showNextQuestion();
-    });
+    }, false);
 
     for(var i = 0; i < len; i++) {
       option_labels[i].addEventListener("click", function() {
         that.enableSubmitButton();
-      });
+      }, false);
     }
   },
 
