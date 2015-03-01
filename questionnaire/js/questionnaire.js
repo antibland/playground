@@ -14,7 +14,7 @@ var Questionnaire = {
       document
         .querySelector("ol li:first-child")
         .setAttribute("aria-hidden", "false");
-    }, 300);
+    });
   },
 
   createElement: function(el) {
@@ -28,18 +28,14 @@ var Questionnaire = {
   },
 
   bindings: function() {
-    var that = this,
-        option_labels = document.querySelectorAll("ol ul li label"),
-        len = option_labels.length;
+    var option_labels = document.querySelectorAll("ol ul li label"),
+        len           = option_labels.length,
+        i             = 0;
 
-    this.submit_button.addEventListener("click", function() {
-      that.showNextQuestion();
-    }, false);
+    this.submit_button.addEventListener("click", this.showNextQuestion.bind(this), false);
 
-    for(var i = 0; i < len; i++) {
-      option_labels[i].addEventListener("click", function() {
-        that.enableSubmitButton();
-      }, false);
+    for(; i < len; i++) {
+      option_labels[i].addEventListener("click", this.enableSubmitButton.bind(this), false);
     }
   },
 
@@ -93,7 +89,6 @@ var Questionnaire = {
 
   loadQuestions: function() {
     var question_len = questions.length,
-        that = this,
         question_options,
         question_options_length,
         ul, li, li_option, i, question_text,
@@ -101,25 +96,25 @@ var Questionnaire = {
 
         createOptions = function(index) {
           for (var i = 0; i < question_options_length; i++) {
-            li_option = that.createElement("li");
-            option_label = that.createElement("label");
+            li_option = this.createElement("li");
+            option_label = this.createElement("label");
             option_label.innerHTML = question_options[i];
-            option_input = that.createElement("input");
+            option_input = this.createElement("input");
             option_input.type = "radio";
             option_input.name = "rdo_" + index;
             option_label.appendChild(option_input);
             li_option.appendChild(option_label);
             ul.appendChild(li_option);
           }
-        },
+        }.bind(this),
 
         createCard = function(index, question) {
-          question_options  = questions[index].options;
+          question_options = questions[index].options;
           question_options_length = questions[index].options.length;
 
-          question_text = that.createElement("span");
-          ul = that.createElement("ul");
-          li = that.createElement("li");
+          question_text = this.createElement("span");
+          ul = this.createElement("ul");
+          li = this.createElement("li");
 
           question_text.classList.add("question-text");
           question_text.innerHTML = questions[index].question;
@@ -130,10 +125,10 @@ var Questionnaire = {
           li.setAttribute("aria-hidden", "true");
           li.appendChild(question_text);
           li.appendChild(ul);
-          that.questions_list.appendChild(li);
-        };
+          this.questions_list.appendChild(li);
+        }.bind(this);
 
-    for (i = 0; i < question_len; i++) {
+    for (var i = 0; i < question_len; i++) {
       createCard(i, questions[i]);
     }
 
