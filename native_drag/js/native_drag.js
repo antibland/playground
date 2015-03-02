@@ -266,13 +266,12 @@ var Drag = {
   },
 
   touchSupport: function() {
-    if (this.utils.isTouchDevice()) {
+    if (Drag.utils.isTouchDevice()) {
       var style, clone, bounds, clone_left, clone_top,
-          that = this,
           cloneElement = function(el) {
             bounds = el.getBoundingClientRect();
-            clone_left = bounds.left - that.circle.width * .25 + "px";
-            clone_top = bounds.top - that.circle.width * .25 + "px";
+            clone_left = bounds.left - this.circle.width * .25 + "px";
+            clone_top = bounds.top - this.circle.width * .25 + "px";
 
             clone = el.cloneNode(true);
             clone.classList.add("clone");
@@ -288,7 +287,7 @@ var Drag = {
         cloneElement(el);
       });
     }
-  },
+  }.bind(this),
 
   handleTouchStart: function(e, index) {
     var target       = e.target,
@@ -338,16 +337,15 @@ var Drag = {
   loadPositions: function() {
     var targets = this.utils.getTargetElements(),
         len     = targets.length,
-        that    = this,
         rect;
 
     this.positions.length = 0;
 
     [].forEach.call(targets, function(target) {
       rect = target.getBoundingClientRect();
-      that.positions.push([rect.left, rect.top]);
+      this.positions.push([rect.left, rect.top]);
     });
-  },
+  }.bind(this),
 
   detectCollision: function(e) {
     var targets        = this.utils.getTargetElements(),
@@ -358,28 +356,27 @@ var Drag = {
         rect1          = dragged.getBoundingClientRect(),
         x1             = rect1.left,
         y1             = rect1.top,
-        that           = this,
         x2, y2, dx, dy, distance;
 
     this.utils.removeTargetStyles("over");
 
     for (var i = 0; i < len; i++) {
-      x2 = that.positions[i][0];
-      y2 = that.positions[i][1];
+      x2 = this.positions[i][0];
+      y2 = this.positions[i][1];
       dx = (x1 + radius) - (x2 + radius);
       dy = (y1 + radius) - (y2 + radius);
       distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < radius + radius) {
         targets[i].classList.add("over");
-        that.colliding = true;
+        this.colliding = true;
         break;
       } else {
         targets[i].classList.remove("over");
-        that.colliding = false;
+        this.colliding = false;
       }
     }
-  },
+  }.bind(this),
 
   getFriendText: function() {
     return document.querySelector("[aria-grabbed='true'] .friend-name").innerHTML;
