@@ -6,10 +6,9 @@ var credits = (function() {
       main  = document.querySelector("main");
 
   function init() {
-    var choices = document.querySelector("#choices"),
-        i       = 0;
+    var choices = document.querySelector("#choices");
 
-    for (; i < len; i++) {
+    for (var i = 0; i < len; i++) {
       names.push(chance.name());
     }
 
@@ -42,15 +41,15 @@ var credits = (function() {
 
     setTimeout(function() {
       main.classList.add("animate", choice);
-    });
+    }, 300);
   }
 
   function buildCredits() {
-    var dl, dt, dd, i = 0;
+    var dl, dt, dd, i;
 
     dl = document.createElement("dl");
 
-    for (; i < len; i++) {
+    for (i = 0; i < len; i++) {
       dt = document.createElement("dt");
       dt.appendChild(document.createTextNode(roles[i]));
       dd = document.createElement("dd");
