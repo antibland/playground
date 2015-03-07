@@ -144,17 +144,16 @@ var Drag = {
     },
 
     a11yClick: function(event){
-      if (event.type === 'click') {
+      if(event.type === 'click'){
         return true;
-      } else if(event.type === 'keypress') {
-        var code     = event.charCode || event.keyCode,
-            SPACEBAR = 32,
-            ENTER    = 13;
-
-        if((code === SPACEBAR)|| (code === ENTER)) {
-          return true;
+      }
+      else if(event.type === 'keypress'){
+        var code = event.charCode || event.keyCode;
+        if((code === 32)|| (code === 13)){
+            return true;
         }
-      } else {
+      }
+      else{
         return false;
       }
     }
