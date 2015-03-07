@@ -84,7 +84,7 @@ var Drag = {
     removeTargetStyles: function(class_name, e) {
       var targets = Drag.utils.getTargetElements();
 
-      Array.prototype.forEach.call(targets, function(target) {
+      [].forEach.call(targets, function(target) {
         target.classList.remove(class_name);
       });
 
@@ -161,7 +161,7 @@ var Drag = {
 
   bind: {
     draggables: function() {
-      Array.prototype.forEach.call(Drag.draggable_els, function(el, index) {
+      [].forEach.call(Drag.draggable_els, function(el, index) {
         el.addEventListener('dragstart', function(e) { Drag.handleDragStart(e); });
         el.addEventListener('dragend', function(e) { Drag.handleDragEnd(e); });
         el.addEventListener('touchstart', function(e) { Drag.handleTouchStart(e, index); });
@@ -171,7 +171,7 @@ var Drag = {
     },
 
     targets: function() {
-      Array.prototype.forEach.call(Drag.target_els, function(el) {
+      [].forEach.call(Drag.target_els, function(el) {
         el.addEventListener('dragenter', function(e) { Drag.handleDragEnter(e); });
         el.addEventListener('dragleave', function(e) { Drag.handleDragLeave(e); });
         el.addEventListener('dragover', function(e) { Drag.handleDragOver(e); });
@@ -229,7 +229,7 @@ var Drag = {
         animation_end = Drag.utils.whichAnimationEvent(),
         prefix        = Drag.utils.getBrowserPrefix();
 
-    Array.prototype.forEach.call(all_els, function(el, index) {
+    [].forEach.call(all_els, function(el, index) {
       if (el.className !== "clone") {
         el.classList.add("item-load");
       }
@@ -279,7 +279,7 @@ var Drag = {
             el.insertAdjacentElement("afterend", clone);
           };
 
-      Array.prototype.forEach.call(this.draggable_els, function(el) {
+      [].forEach.call(this.draggable_els, function(el) {
         el.removeAttribute("draggable");
         style = "left:0; top:0";
         el.setAttribute("style", style);
@@ -341,7 +341,7 @@ var Drag = {
 
     this.positions.length = 0;
 
-    Array.prototype.forEach.call(targets, function(target) {
+    [].forEach.call(targets, function(target) {
       rect = target.getBoundingClientRect();
       this.positions.push([rect.left, rect.top]);
     });
@@ -383,7 +383,7 @@ var Drag = {
   },
 
   handleDragEnd: function(e) {
-    Array.prototype.forEach.call(this.draggable_els, function (el) {
+    [].forEach.call(this.draggable_els, function (el) {
       el.classList.remove("over");
     });
 
@@ -429,11 +429,11 @@ var Drag = {
 
   resetTargetStates: function() {
     Drag.colliding = false;
-    Array.prototype.forEach.call(this.draggable_els, function (el) {
+    [].forEach.call(this.draggable_els, function (el) {
       el.classList.remove("enable-transition");
     });
 
-    Array.prototype.forEach.call(this.target_els, function (el) {
+    [].forEach.call(this.target_els, function (el) {
       el.classList.remove("item-duplicate");
       el.classList.remove("item-dropped");
       el.classList.remove("over");
@@ -463,7 +463,7 @@ var Drag = {
     removeFromDOM();
 
     // remove the invitee from the target list beneath the modal
-    Array.prototype.forEach.call(invitees, function(invitee) {
+    [].forEach.call(invitees, function(invitee) {
       tmp_name = invitee.querySelector(".invitee-name").innerHTML;
 
       if (tmp_name === invitee_name) {
@@ -507,7 +507,7 @@ var Drag = {
           list.appendChild(new_item);
         };
 
-    Array.prototype.forEach.call(items, function (item) {
+    [].forEach.call(items, function (item) {
       if (item.innerHTML === new_item_text) {
         duplicate = true;
       }
