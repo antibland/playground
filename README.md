@@ -71,8 +71,8 @@ License
 
 [MIT][1]
 
-[1]: https://github.com/naayt/playground/blob/master/LICENSE
+[1]: https://github.com/antibland/playground/blob/master/LICENSE
 [2]: http://www.w3.org/TR/wai-aria/
-[3]: http://naayt.github.io/playground/credits/
-[4]: http://naayt.github.io/playground/questionnaire/
-[5]: http://naayt.github.io/playground/native_drag/
+[3]: http://antibland.github.io/playground/credits/
+[4]: http://antibland.github.io/playground/questionnaire/
+[5]: http://antibland.github.io/playground/native_drag/
