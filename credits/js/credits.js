@@ -31,7 +31,7 @@ var credits = (function() {
       }
 
       restartCredits(choice);
-    });
+    }, false);
 
     buildCredits();
   }

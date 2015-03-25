@@ -162,23 +162,23 @@ var Drag = {
   bind: {
     draggables: function() {
       [].forEach.call(Drag.draggable_els, function(el, index) {
-        el.addEventListener('dragstart', function(e) { Drag.handleDragStart(e); });
-        el.addEventListener('dragend', function(e) { Drag.handleDragEnd(e); });
-        el.addEventListener('touchstart', function(e) { Drag.handleTouchStart(e, index); });
-        el.addEventListener('touchmove', function(e) { Drag.handleTouchMove(e, index); });
-        el.addEventListener('touchend', function(e) { Drag.handleTouchEnd(e, index); });
+        el.addEventListener('dragstart', function(e) { Drag.handleDragStart(e); }, false);
+        el.addEventListener('dragend', function(e) { Drag.handleDragEnd(e); }, false);
+        el.addEventListener('touchstart', function(e) { Drag.handleTouchStart(e, index); }, false);
+        el.addEventListener('touchmove', function(e) { Drag.handleTouchMove(e, index); }, false);
+        el.addEventListener('touchend', function(e) { Drag.handleTouchEnd(e, index); }, false);
       });
     },
 
     targets: function() {
       [].forEach.call(Drag.target_els, function(el) {
-        el.addEventListener('dragenter', function(e) { Drag.handleDragEnter(e); });
-        el.addEventListener('dragleave', function(e) { Drag.handleDragLeave(e); });
-        el.addEventListener('dragover', function(e) { Drag.handleDragOver(e); });
-        el.addEventListener('drop', function(e) { Drag.handleDrop(e); });
-        el.addEventListener('click', function(e) { Drag.handleTarget(e); });
-        el.addEventListener('keypress', function(e) { Drag.handleTarget(e); });
-        el.addEventListener('touchstart', function(e) { Drag.handleTarget(e); });
+        el.addEventListener('dragenter', function(e) { Drag.handleDragEnter(e); }, false);
+        el.addEventListener('dragleave', function(e) { Drag.handleDragLeave(e); }, false);
+        el.addEventListener('dragover', function(e) { Drag.handleDragOver(e); }, false);
+        el.addEventListener('drop', function(e) { Drag.handleDrop(e); }, false);
+        el.addEventListener('click', function(e) { Drag.handleTarget(e); }, false);
+        el.addEventListener('keypress', function(e) { Drag.handleTarget(e); }, false);
+        el.addEventListener('touchstart', function(e) { Drag.handleTarget(e); }, false);
       });
     },
 
@@ -191,7 +191,7 @@ var Drag = {
           modal = Drag.overlay.querySelector(".modal");
           modal.setAttribute("aria-hidden", "false");
         }
-      });
+      }, false);
     },
 
     keydown: function() {
@@ -236,7 +236,7 @@ var Drag = {
 
       animation_end && el.addEventListener(animation_end, function() {
         el.classList.remove("item-load");
-      });
+      }, false);
     });
   },
 
@@ -459,7 +459,7 @@ var Drag = {
           li.classList.add("item-remove-row");
           transition_end && li.addEventListener(transition_end, function() {
             try { li.parentNode.removeChild(li); } catch(err) {}
-          });
+          }, false);
         };
 
     // remove the invitee from the modal
