@@ -28,7 +28,7 @@ var Questionnaire = {
   },
 
   bindings: function() {
-    var option_labels = document.querySelectorAll("ol ul li label"),
+    var option_labels = document.getElementsByClassName("option_label"),
         len           = option_labels.length,
         i             = 0;
 
@@ -98,6 +98,7 @@ var Questionnaire = {
           for (var i = 0; i < question_options_length; i++) {
             li_option = this.createElement("li");
             option_label = this.createElement("label");
+            option_label.className = "option_label";
             option_label.innerHTML = question_options[i];
             option_input = this.createElement("input");
             option_input.type = "radio";
