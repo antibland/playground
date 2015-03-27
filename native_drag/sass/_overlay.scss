@@ -10,11 +10,13 @@
 
   &[aria-hidden="false"] {
     @include opacity(1);
+    visibility: visible;
     pointer-events: auto;
   }
 
   &[aria-hidden="true"] {
     @include opacity(0);
+    visibility: hidden;
     pointer-events: none;
   }
 

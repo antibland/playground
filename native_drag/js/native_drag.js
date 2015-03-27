@@ -530,7 +530,7 @@ var Drag = {
     this.drag_src_el = e.target;
 
     e.dataTransfer.effectAllowed = Drag.effectAllowed;
-    e.dataTransfer.setData('text/html', target.innerHTML);
+    e.dataTransfer.setData('Text', target.innerHTML);
   },
 
   handleDragOver: function(e) {

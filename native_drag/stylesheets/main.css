@@ -1,4 +1,4 @@
-/* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -517,15 +517,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .overlay[aria-hidden="false"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
-/* line 16, ../sass/_overlay.scss */
+/* line 17, ../sass/_overlay.scss */
 .overlay[aria-hidden="true"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
-/* line 21, ../sass/_overlay.scss */
+/* line 23, ../sass/_overlay.scss */
 .overlay [role=dialog] {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -544,14 +546,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   outline: none;
   background: #555555;
 }
-/* line 34, ../sass/_overlay.scss */
+/* line 36, ../sass/_overlay.scss */
 .overlay [role=dialog][aria-hidden="true"] {
   -moz-transform: translateY(-100em);
   -ms-transform: translateY(-100em);
   -webkit-transform: translateY(-100em);
   transform: translateY(-100em);
 }
-/* line 38, ../sass/_overlay.scss */
+/* line 40, ../sass/_overlay.scss */
 .overlay [role=dialog][aria-hidden="false"] {
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -559,7 +561,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   transform: translateY(-50%);
 }
 @media screen and (max-width: 600px) {
-  /* line 38, ../sass/_overlay.scss */
+  /* line 40, ../sass/_overlay.scss */
   .overlay [role=dialog][aria-hidden="false"] {
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
@@ -569,12 +571,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     top: 2em;
   }
 }
-/* line 50, ../sass/_overlay.scss */
+/* line 52, ../sass/_overlay.scss */
 .overlay .invitee-name,
 .overlay h1 {
   text-shadow: 0 1px 2px #333;
 }
-/* line 55, ../sass/_overlay.scss */
+/* line 57, ../sass/_overlay.scss */
 .overlay .invitees button,
 .overlay textarea,
 .overlay [type="submit"] {
@@ -582,11 +584,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
 }
-/* line 61, ../sass/_overlay.scss */
+/* line 63, ../sass/_overlay.scss */
 .overlay .invitees {
   float: left;
 }
-/* line 64, ../sass/_overlay.scss */
+/* line 66, ../sass/_overlay.scss */
 .overlay .invitees li {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -597,27 +599,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-size: 1.6em;
   margin-bottom: 0.5em;
 }
-/* line 72, ../sass/_overlay.scss */
+/* line 74, ../sass/_overlay.scss */
 .overlay .invitees .invitee-name {
   display: inline-block;
   width: 7.5em;
 }
-/* line 77, ../sass/_overlay.scss */
+/* line 79, ../sass/_overlay.scss */
 .overlay .invitees button {
   cursor: pointer;
   font-size: 0.8em;
   border: none;
   background: lightblue;
 }
-/* line 82, ../sass/_overlay.scss */
+/* line 84, ../sass/_overlay.scss */
 .overlay .invitees button:active {
   background: lightblue;
 }
-/* line 85, ../sass/_overlay.scss */
+/* line 87, ../sass/_overlay.scss */
 .overlay .invitees button:focus {
   outline: none;
 }
-/* line 91, ../sass/_overlay.scss */
+/* line 93, ../sass/_overlay.scss */
 .overlay [type=submit] {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -629,16 +631,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   float: right;
   padding: 0.4em;
 }
-/* line 106, ../sass/_overlay.scss */
+/* line 108, ../sass/_overlay.scss */
 .overlay header {
   margin: 1em 0;
 }
-/* line 110, ../sass/_overlay.scss */
+/* line 112, ../sass/_overlay.scss */
 .overlay h1 {
   font-size: 2.2em;
   color: white;
 }
-/* line 115, ../sass/_overlay.scss */
+/* line 117, ../sass/_overlay.scss */
 .overlay textarea {
   border: none;
   font-size: 1.5em;
@@ -647,7 +649,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 9.7em;
   margin-bottom: 0.5em;
 }
-/* line 124, ../sass/_overlay.scss */
+/* line 126, ../sass/_overlay.scss */
 .overlay .success {
   -moz-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;
@@ -791,7 +793,7 @@ body {
 #events > li ul {
   width: 100%;
   position: absolute;
-  pointer-events: none;
+  visibility: hidden;
 }
 /* line 103, ../sass/main.scss */
 #events > li ul:after {
@@ -818,21 +820,25 @@ body {
   text-align: center;
 }
 /* line 123, ../sass/main.scss */
-#events > li:focus {
-  outline: 1px dashed darkgray;
+#events > li:focus ul, #events > li.over ul {
+  visibility: visible;
 }
 /* line 127, ../sass/main.scss */
-#events > li.over {
-  cursor: pointer;
-  border-color: black;
-  background: #ccc;
-}
-/* line 133, ../sass/main.scss */
-#events > li.over ul:after {
+#events > li:focus ul:after, #events > li.over ul:after {
   -moz-transform: translateY(25%) scale3d(1, 1, 1);
   -ms-transform: translateY(25%) scale3d(1, 1, 1);
   -webkit-transform: translateY(25%) scale3d(1, 1, 1);
   transform: translateY(25%) scale3d(1, 1, 1);
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
+}
+/* line 135, ../sass/main.scss */
+#events > li:focus {
+  outline: 1px dashed darkgray;
+}
+/* line 139, ../sass/main.scss */
+#events > li.over {
+  cursor: pointer;
+  border-color: black;
+  background: #ccc;
 }
