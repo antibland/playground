@@ -143,17 +143,16 @@ var Drag = {
              (/opera/.test(navigator.userAgent.toLowerCase()))  ? '-o-' : '';
     },
 
-    a11yClick: function(event){
-      if(event.type === 'click'){
+    a11yClick: function(e){
+      if(e.type === 'click'){
         return true;
-      }
-      else if(event.type === 'keypress'){
-        var code = event.charCode || event.keyCode;
+      } else if(e.type === 'keypress'){
+        var code = e.charCode || e.keyCode;
+
         if((code === 32)|| (code === 13)){
             return true;
         }
-      }
-      else{
+      } else{
         return false;
       }
     }
@@ -183,12 +182,12 @@ var Drag = {
     },
 
     endAnimations: function() {
-      var transition_end = Drag.utils.whichTransitionEvent(),
-          modal;
+      var transition_end = Drag.utils.whichTransitionEvent();
+
       // completion of overlay transition reveals modal
       transition_end && Drag.overlay.addEventListener(transition_end, function() {
         if (Drag.overlay.getAttribute("aria-hidden") === "false") {
-          modal = Drag.overlay.querySelector(".modal");
+          var modal = Drag.overlay.querySelector(".modal");
           modal.setAttribute("aria-hidden", "false");
         }
       }, false);
@@ -223,8 +222,8 @@ var Drag = {
   },
 
   enterStage: function() {
-    var a             = Array.prototype.slice.call(Drag.draggable_els),
-        b             = Array.prototype.slice.call(Drag.target_els),
+    var a             = [].slice.call(Drag.draggable_els),
+        b             = [].slice.call(Drag.target_els),
         all_els       = a.concat(b),
         animation_end = Drag.utils.whichAnimationEvent(),
         prefix        = Drag.utils.getBrowserPrefix();
