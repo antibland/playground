@@ -124,11 +124,14 @@ body {
   &.over ul {
     visibility: visible;
 
-    &:after {
-      @include transform(
-        translateY(25%) scale3d(1, 1, 1)
-      );
-      @include opacity(1);
+    &:not([data-list-size='0']) {
+
+      &:after {
+        @include transform(
+          translateY(25%) scale3d(1, 1, 1)
+        );
+        @include opacity(1);
+      }
     }
   }
 
