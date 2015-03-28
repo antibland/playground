@@ -166,6 +166,11 @@ var Drag = {
         el.addEventListener('touchstart', function(e) { Drag.handleTouchStart(e, index); }, false);
         el.addEventListener('touchmove', function(e) { Drag.handleTouchMove(e, index); }, false);
         el.addEventListener('touchend', function(e) { Drag.handleTouchEnd(e, index); }, false);
+        /*el.addEventListener('selectstart', function(evt) {
+          evt.preventDefault && evt.preventDefault();
+          this.dragDrop && this.dragDrop();  //activates DnD for IE
+          return false;
+        }, false);*/
       });
     },
 
@@ -247,21 +252,22 @@ var Drag = {
   },
 
   handleTarget: function(e) {
-    var target = e.target,
-        list   = target.querySelector("ul") || undefined;
+    var target   = e.target,
+        list     = target.querySelector("ul") || undefined,
+        list_len = list && list.querySelectorAll("li").length || 0;
 
-    if (this.utils.a11yClick(e) === true) {
-      if (typeof list !== "undefined" && list.dataset.listSize > 0) {
-        this.utils.removeTargetStyles("over", e);
+    if (typeof list !== "undefined"
+        && list_len > 0
+        && this.utils.a11yClick(e) === true) {
 
-        this.modal.create({
-          event_title : target.querySelector(".event-name").innerHTML,
-          num_friends : list.dataset.listSize,
-          friends_list: list
-        });
-      }
+      this.utils.removeTargetStyles("over", e);
+
+      this.modal.create({
+        event_title : target.querySelector(".event-name").innerHTML,
+        num_friends : list_len,
+        friends_list: list
+      });
     }
-
   },
 
   touchSupport: function() {
