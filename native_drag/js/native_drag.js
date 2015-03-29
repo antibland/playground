@@ -166,11 +166,6 @@ var Drag = {
         el.addEventListener('touchstart', function(e) { Drag.handleTouchStart(e, index); }, false);
         el.addEventListener('touchmove', function(e) { Drag.handleTouchMove(e, index); }, false);
         el.addEventListener('touchend', function(e) { Drag.handleTouchEnd(e, index); }, false);
-        /*el.addEventListener('selectstart', function(evt) {
-          evt.preventDefault && evt.preventDefault();
-          this.dragDrop && this.dragDrop();  //activates DnD for IE
-          return false;
-        }, false);*/
       });
     },
 
@@ -411,7 +406,13 @@ var Drag = {
           touch_target.nextSibling.classList.remove("shown");
         },
         incrementFriendCount = function() {
-          friends_list.dataset.listSize = friends_list.querySelectorAll("li").length;
+          var list_len = friends_list.querySelectorAll("li").length;
+
+          if (!friends_list.getAttribute("data-list-size")) {
+            friends_list.setAttribute("data-list-size", list_len);
+          } else {
+            friends_list.dataset.listSize = list_len;
+          }
         };
 
     this.utils.preventBrowserRedirect(e);
@@ -449,26 +450,29 @@ var Drag = {
   },
 
   removeInvitee: function(btn, invitee_name) {
-    var li             = btn.parentNode,
-        invitee_list   = document.querySelector(".over ul"),
-        invitees       = invitee_list.querySelectorAll("li"),
-        empty_html     = "<li>You&rsquo;ve removed all event invites.</li>",
-        transition_end = Drag.utils.whichTransitionEvent(),
+    var li               = btn.parentNode,
+        invitee_list     = document.querySelector(".over ul"),
+        invitees         = invitee_list.querySelectorAll("li"),
+        empty_html       = "<li>You&rsquo;ve removed all event invites.</li>",
+        transition_end   = Drag.utils.whichTransitionEvent(),
         tmp_name,
-        disableSubmit  = function() {
+        disableSubmit    = function() {
           document
             .querySelector(".modal [type=submit]")
             .setAttribute("disabled", "disabled");
         },
-        removeFromDOM  = function() {
+        removeInvitee    = function() {
           li.classList.add("item-remove-row");
           transition_end && li.addEventListener(transition_end, function() {
             try { li.parentNode.removeChild(li); } catch(err) {}
           }, false);
+        },
+        removeInviteeList = function() {
+          invitee_list.parentNode.removeChild(invitee_list);
         };
 
     // remove the invitee from the modal
-    removeFromDOM();
+    removeInvitee();
 
     // remove the invitee from the target list beneath the modal
     [].forEach.call(invitees, function(invitee) {
@@ -481,8 +485,9 @@ var Drag = {
 
     invitee_list.dataset.listSize--;
 
-    if (invitee_list.dataset.listSize <= 0) {
+    if (invitee_list.querySelectorAll("li").length <= 0) {
       li.parentNode.innerHTML = empty_html;
+      removeInviteeList();
       disableSubmit();
     }
 
