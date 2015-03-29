@@ -36,7 +36,7 @@ var questionnaire = Object.create(Questionnaire);
 questionnaire.init();
 ```
 
-<h3 align="center">Drag & Drop Bubbles</h3>
+<h3 align="center">Drag & Drop UI</h3>
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/drag.gif" alt="">
 </p>
@@ -64,7 +64,7 @@ Demos
 
 [Questionnaire][4]
 
-[Drag & Drop Bubbles][5]
+[Drag & Drop UI][5]
 
 License
 -------
