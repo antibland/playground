@@ -166,6 +166,11 @@ var Drag = {
         el.addEventListener('touchstart', function(e) { Drag.handleTouchStart(e, index); }, false);
         el.addEventListener('touchmove', function(e) { Drag.handleTouchMove(e, index); }, false);
         el.addEventListener('touchend', function(e) { Drag.handleTouchEnd(e, index); }, false);
+        el.addEventListener('selectstart', function(e) {
+          e.preventDefault && e.preventDefault();
+          this.dragDrop && this.dragDrop();  //activates DnD for IE
+          return false;
+        }, false);
       });
     },
 
