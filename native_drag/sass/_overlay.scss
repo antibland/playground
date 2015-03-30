@@ -23,23 +23,32 @@
   [role=dialog] {
     @include transition(0.3s);
     @include border-radius(0.6em);
+    border: 1px solid darken($light_gray, 30%);
+    background: darken($light_gray, 60%);
     padding: 0.75em 1em 1em;
     margin: 0 auto;
     display: table;
     position: relative;
     top: 50%;
     width: 50em;
-    border: 1px solid darken($light_gray, 30%);
     outline: none;
-    background: darken($light_gray, 60%);
+    z-index: 100;
 
-    &[aria-hidden="true"] {
-      @include transform(translateY(-100em));
+    html:not(.ie9) & {
+      @include transform(translateY(-250%));
+      &[aria-hidden="false"] {
+        @include transform(translateY(-50%));
+      }
+    }
+
+    html:not(.not_ie) & {
+      @include transform(translateY(-50%));
+      &[aria-hidden="false"] {
+        @include transform(translateY(-50%));
+      }
     }
 
     &[aria-hidden="false"] {
-      @include transform(translateY(-50%));
-
       @media screen and (max-width: $break-small) {
         @include transform(translateY(0));
         width: 92%;

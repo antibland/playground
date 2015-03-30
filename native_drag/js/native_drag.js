@@ -94,10 +94,12 @@ var Drag = {
     },
 
     preventBrowserRedirect: function(e) {
+      if (e.preventDefault) {
+        e.preventDefault();
+      }
       if (e.stopPropagation) {
         e.stopPropagation();
       }
-
       return false;
     },
 
@@ -420,6 +422,7 @@ var Drag = {
           }
         };
 
+
     this.utils.preventBrowserRedirect(e);
 
     if (target.childNodes.length <= 3) {
@@ -559,7 +562,12 @@ var Drag = {
   },
 
   handleDragEnter: function(e) {
+    if (e.preventDefault) {
+      e.preventDefault();
+    }
+
     this.utils.removeTargetStyles("over", e);
+    return false;
   },
 
   handleDragLeave: function(e) {
