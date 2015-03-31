@@ -50,7 +50,7 @@
 
     &[aria-hidden="false"] {
       @media screen and (max-width: $break-small) {
-        @include transform(translateY(0));
+        @include transform(translateY(0) !important);
         width: 92%;
         top: 2em;
       }
