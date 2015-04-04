@@ -12,6 +12,9 @@ A swaggy place to rock and roll.
 What's in here?
 ---------------
 
+<h3 align="center">Tada — A todo list for your mouth</h3>
+<p>Coming soon&hellip;</p>
+
 <h3 align="center">Movie-style Credits</h3>
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/credits.png" alt="">
