@@ -11,7 +11,7 @@ A swaggy place to rock and roll.
 
 What's in here?
 ---------------
-<h3 align="center">Movie-style Credits</h3>
+<h3 align="center">Movie Credits</h3>
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/credits.png" alt="">
 </p>
@@ -59,7 +59,7 @@ drag.init({
 ```
 Demos
 --------------
-[Movie-style Credits][3]
+[Movie Credits][3]
 
 [Questionnaire][4]
 
