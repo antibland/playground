@@ -1,0 +1,24 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "variables";
+@import "mixins";
+@import "animations";
+
+* {
+  @include box-sizing(border-box);
+
+  &:after,
+  &:before {
+    @include box-sizing(border-box);
+  }
+}
+
+main {
+  text-align: center;
+}
+
+body {
+  font-family: $font_stack;
+  font-weight: 300;
+  font-size: 62.5%;
+}
