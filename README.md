@@ -11,6 +11,13 @@ A swaggy place to rock and roll.
 
 What's in here?
 ---------------
+<h3 align="center">Animated Masking Experiment</h3>
+<p align="center">
+  <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/masking_blend_mode.gif" alt="">
+</p>
+
+You're in hell! Or maybe, you're okay. Blend modes meet infinite keyframe background-position movement in `CSS`.
+
 <h3 align="center">Movie Credits</h3>
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/credits.png" alt="">
@@ -59,6 +66,8 @@ drag.init({
 ```
 Demos
 --------------
+[Animated Masking Experiment][6]
+
 [Movie Credits][3]
 
 [Questionnaire][4]
@@ -75,3 +84,4 @@ License
 [3]: http://antibland.github.io/playground/credits/
 [4]: http://antibland.github.io/playground/questionnaire/
 [5]: http://antibland.github.io/playground/native_drag/
+[6]: http://antibland.github.io/playground/masks/
