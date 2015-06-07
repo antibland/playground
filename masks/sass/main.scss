@@ -17,6 +17,26 @@ main {
   text-align: center;
 }
 
+.dark {
+  @include animation(shift_hell 10s linear infinite);
+  background-size: cover;
+  background-image: url(../img/hell.jpg);
+
+  h1 {
+    margin: 0;
+    font-size: 10vw;
+    height: 100vh;
+    line-height: 100vh;
+    text-transform: uppercase;
+    font-family: Montserrat, sans-serif;
+    color: #fff;
+    background: #000;
+    mix-blend-mode: darken;
+    font-weight: bold;
+    word-spacing: 0.1em;
+  }
+}
+
 body {
   font-family: $font_stack;
   font-weight: 300;
