@@ -18,7 +18,7 @@ main {
 }
 
 .dark {
-  @include animation(shift_hell 10s linear infinite);
+  @include animation(shift_hell 20s linear infinite);
   background-size: cover;
   background-image: url(../img/hell.jpg);
 
@@ -29,8 +29,8 @@ main {
     line-height: 100vh;
     text-transform: uppercase;
     font-family: Montserrat, sans-serif;
-    color: #fff;
-    background: #000;
+    color: white;
+    background: black;
     mix-blend-mode: darken;
     font-weight: bold;
     word-spacing: 0.1em;
