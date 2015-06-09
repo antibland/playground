@@ -18,7 +18,7 @@ main {
 }
 
 .dark {
-  @include animation(shift_hell 20s linear infinite);
+  @include animation(shift_hell 30s linear infinite);
   background-size: cover;
   background-image: url(../img/hell.jpg);
 
