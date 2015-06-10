@@ -11,7 +11,7 @@ A swaggy place to rock and roll.
 
 What's in here?
 ---------------
-<h3 align="center">Animated Masking Experiment</h3>
+<h3 align="center">Masking + Animated Background</h3>
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/24799515/img_share/masking_blend_mode.gif" alt="">
 </p>
@@ -66,7 +66,7 @@ drag.init({
 ```
 Demos
 --------------
-[Animated Masking Experiment][6]
+[Masking + Animated Background][6]
 
 [Movie Credits][3]
 
