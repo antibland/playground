@@ -18,6 +18,8 @@ main {
 }
 
 .mask {
+  @include perspective(1000);
+  @include animation(shift_hell 30s linear infinite);
   background-size: cover;
   background-image: url(../img/hell.jpg);
   font-size: 8vw;
@@ -34,14 +36,10 @@ main {
     font-weight: bold;
     word-spacing: 0.1em;
   }
-}
 
-.scale {
-  @include animation(scale 5s linear forwards);
-}
-
-.burn {
-  @include animation(shift_hell 30s linear infinite);
+  &.scale {
+    @include animation(shift_hell 30s linear infinite, scale 8s linear forwards);
+  }
 }
 
 body {

@@ -4,12 +4,13 @@
 }
 
 @include keyframes(scale) {
-  from {
-    background-position: 0 0;
+  0% {
     @include scale3d(1, 1, 1);
   }
-  to {
-    background-position: 0 -1024px;
-    @include scale3d(15, 15, 3);
+  50% {
+    @include scale3d(10, 10, 1);
+  }
+  100% {
+    @include scale3d(1, 1, 1);
   }
 }
