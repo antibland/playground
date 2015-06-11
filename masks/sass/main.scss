@@ -17,14 +17,13 @@ main {
   text-align: center;
 }
 
-.dark {
-  @include animation(shift_hell 30s linear infinite);
+.mask {
   background-size: cover;
   background-image: url(../img/hell.jpg);
+  font-size: 8vw;
 
   h1 {
     margin: 0;
-    font-size: 10vw;
     height: 100vh;
     line-height: 100vh;
     text-transform: uppercase;
@@ -35,6 +34,14 @@ main {
     font-weight: bold;
     word-spacing: 0.1em;
   }
+}
+
+.scale {
+  @include animation(scale 5s linear forwards);
+}
+
+.burn {
+  @include animation(shift_hell 30s linear infinite);
 }
 
 body {
