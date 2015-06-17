@@ -6,7 +6,7 @@
 @include keyframes(scale_one) {
   0% {
     opacity: 0;
-    @include scale3d(10, 10, 1);
+    @include scale3d(8, 8, 1);
   }
   100% {
     opacity: 1;
